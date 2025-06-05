@@ -81,16 +81,16 @@ homeMainContent: >-
   ### I **taught myself to code in high school** and earned a B.S. in Computer Science from **Georgia Tech**.
 
 
-  I spent my free time in college **building** this consulting biz I still operate today on the side. So I bring value from **ideation to launch and beyond** since **I've worn many hats** and empathize with other roles in a business. I've 
+  I spent my free time in college **building** this consulting biz I still operate today on the side. So I bring value from **ideation to launch and beyond** since **I've worn many hats** and **empathize with other roles in a business.** I've 
 
 
-  * **Sold**, previously **six figures of revenue only working part-time** as an independent and now help close **7 figure deals with a team**.
+  * **Sold**, previously **six figures of revenue only working part-time** as an independent contractor and now help close **7 to 8 figure deals with teams**.
 
   * **built** successful **marketing campaigns for 300+ person social events** in San Francisco
 
   * **Written** blog posts with **10,000+** views
 
-  * **advised** startups on product and engineering strategy. 
+  * **advise** startups on product and engineering strategy. 
 
 
   ## Constantly learning
