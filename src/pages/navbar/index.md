@@ -6,9 +6,11 @@ menuItems:
     linkURL: /
   - label: articles
     linkType: external
-    linkURL: 'https://boujeehacker.substack.com'
+    linkURL: https://boujeehacker.substack.com
+  - label: work together
+    linkType: external
+    linkURL: /contact
   - label: contact
     linkType: internal
     linkURL: /contact
 ---
-
