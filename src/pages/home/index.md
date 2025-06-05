@@ -38,7 +38,7 @@ homeMainContent: >-
   **Imagine if you could hire a top team from** [**FAANG+** / MANGA / (your fav acronym)](https://en.wikipedia.org/wiki/Big_Tech) to help overhaul your tech stack or improve your products from design to scalability. **That's this team.**
 
 
-  So far I've worked on everything from **overhauling github actions pipelines for a multi-billion dollar energy companys** mobile apps to **leading a team building a weekly sentiment analysis pipeline for a graph database of the entire energy economy**. Which I presented to an executive department of the federal government. 
+  So far I've worked on everything from **overhauling github actions pipelines for a multi-billion dollar energy company's** mobile apps to **leading a team building a weekly sentiment analysis pipeline for a graph database of the entire energy economy**. (Which I later presented to an executive department of the federal government.)
 
 
   Also I've helped multi-billion dollar med-tech and healthcare companies **build and scale critical care distributed systems** and **led an internal BCGX team to build one of the companies first multi agent Generative AI Applications** to power content generation.
