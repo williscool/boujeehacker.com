@@ -11,7 +11,7 @@ homeMainContent: >-
   ## About Me
 
 
-  ### Miami 🏝️ based ex Silicon Valley software engineer and tech advisor
+  ### Atlanta 🌆 based ex Silicon Valley software engineer and tech advisor
 
 
   I'm a full-stack product engineer 👨🏿‍🔬 with 14 years of experience building software primarily on the web and mobile at scale for Silicon Valley Tech Giants (ex-[LinkedIn](https://www.linkedin.com/)), VC backed startups (ex-[OpenSea](https://opensea.io/)), and Open Source Projects ([cncf/cnf-testsuite](https://github.com/cncf/cnf-testsuite/)).
@@ -32,13 +32,25 @@ homeMainContent: >-
   ## Most recently
 
 
-  One of the **first 50 employees at** **[OpenSea](https://opensea.io/)** where I built the **[foundations of social integrations](https://twitter.com/opensea/status/1473416243688480779)** with Twitter among other yet to be released social networks **for all NFT collections and accounts** on the service. I also designed and deployed the pioneering **social media metadata service backend that powers trust an safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
+  I've been working with BCGX (<https://www.bcg.com/x/>) the tech build and design unit of [BCG](https://en.wikipedia.org/wiki/Big_Three_(management_consultancies)). **Imagine if you could hire a top team from** [**FAANG+** / MANGA / (your fav acronym)](https://en.wikipedia.org/wiki/Big_Tech) to help overhaul your tech stack or improve your products from design to scalability. **That's this team.**
+
+
+  So far I've worked on everything from **overhauling github actions pipelines for a multi-billion dollar energy companys** mobile apps to **leading a team building a weekly sentiment analysis pipeline for a graph database of the entire energy economy**. Which I presented to an executive department of the federal government. 
+
+
+  Also I've helped multi-billion dollar med-tech and healthcare companies **build and scale critical care distributed systems** and **led an internal BCGX team to build one of the companies first multi agent Generative AI Applications** to power content generation.
 
 
   Prior to that
 
 
-  **Helping to build a business** with Kubernetes ☸ (k8s) and crystal lang as a **founding core maintainer** of the open source [ **https://github.com/cncf/cnf-testsuite/**](https://github.com/cncf/cnf-testsuite/) **a project with over ~100 stars on github** 
+  One of the **first 50 employees at** **[OpenSea](https://opensea.io/)** where I built the **[foundations of social integrations](https://twitter.com/opensea/status/1473416243688480779)** with Twitter among other yet to be released social networks **for all NFT collections and accounts** on the service. I also designed and deployed the pioneering **social media metadata service backend that powers trust an safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
+
+
+  And before that
+
+
+  **Helping to build a business** with Kubernetes ☸ (k8s) and crystal lang as a **founding core maintainer** of the open source [ **https://github.com/cncf/cnf-testsuite/**](https://github.com/lfn-cnti/testsuite) **a project currently with over ~175 stars on github** 
 
 
   **tl:dr?** the **suite** assesses that **k8s** apps built in the **1.74 trillion telecom 📞📱☎️📡 industry can scale** for the **CNCF** whose members include **Google and Amazon** among other cloud giants [https://www.**cncf**.io/about/members/](https://www.cncf.io/about/members/)
