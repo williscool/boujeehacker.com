@@ -47,9 +47,6 @@ homeMainContent: >-
   Which I **[gave a talk](https://youtu.be/n8g60VglyUw?list=PLe1-A91ZPTpAhkbyQSFbF5DdZEFhlMxEL&t=694)** about at the **[2021 Crystal 1.0 Conference](https://crystal-lang.org/conference/)**
 
 
-  https://www.eventbrite.com.ar/e/crystal-conference-10-launch-tickets-149153252393
-
-
   ## Before that
 
 
@@ -87,11 +84,11 @@ homeMainContent: >-
   I'm continually learning new things also. A few projects:
 
 
+  * <https://github.com/williscool/CalendarNotification>
+
   * I built and polished apps that received **press coverage from 7+ internationally recognized news outlets** and were downloaded over **80,000** times in around **70+ countries** 
 
   * an auto prioritizing todo list in Trello and a summarizer. using AWS lambda, the serverless framework, and the Trello api 
-
-  * a [hacker news](https://news.ycombinator.com/) comment notifier with node.js + hasura on k8s **<https://www.hacknotescenter.com/>**
 
 
   ## In my spare time
