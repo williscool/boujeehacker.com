@@ -69,7 +69,7 @@ homeMainContent: >-
   Reach out!: [https://boujeehacker.com/contact](https://boujeehacker.com/contact/)
 
 
-  Whats my process?: [](https://boujeehacker.com/contact/)[](https://boujeehacker.com/contact/)[](https://boujeehacker.com/contact/)[Check out this primer](https://docs.google.com/presentation/d/17srZbSNvvgtIGhutIbKCqmfZl6QMCmcLXl2viDqNdLc/edit?slide=id.gc6f9e470d_0_0#slide=id.gc6f9e470d_0_0) 
+  What's my process?: [](https://boujeehacker.com/contact/)[](https://boujeehacker.com/contact/)[](https://boujeehacker.com/contact/)[Check out this primer](https://docs.google.com/presentation/d/17srZbSNvvgtIGhutIbKCqmfZl6QMCmcLXl2viDqNdLc/edit?slide=id.gc6f9e470d_0_0#slide=id.gc6f9e470d_0_0) 
 
 
   ## Previous Work
@@ -95,7 +95,7 @@ homeMainContent: >-
   * with **PostgreSQL** in general as the data store.
 
 
-  At startups before landing at Linkedin
+  At startups before landing at Linkedin.
 
 
   ## About the biz
@@ -104,12 +104,12 @@ homeMainContent: >-
   ### I **taught myself to code in high school** and earned a B.S. in Computer Science from **Georgia Tech**.
 
 
-  I spent my free time in college **building** this consulting biz I still operate today on the side. So I bring value from **ideation to launch and beyond** since **I've worn many hats** and **empathize with other roles in a business.** I've 
+  I spent my free time in college **building** this consulting biz I still operate today on the side. So I bring value from **ideation to launch and beyond** since **I've worn many hats** and **empathize with other roles in a business outside of software** since I've 
 
 
   * **Sold**, previously **six figures of revenue only working part-time** as an independent contractor and now help close **7 to 8 figure deals with teams**.
 
-  * **built** successful **marketing campaigns for 300+ person social events** in San Francisco
+  * **Marketed** built **successful campaigns for 300+ person social events** in San Francisco
 
   * **Written** blog posts with **10,000+** views
 
@@ -132,7 +132,7 @@ homeMainContent: >-
   ## In my spare time
 
 
-  I enjoy **mentoring** (**mentees** have gone on to have successful tech careers and **even raise Venture Capital**). 
+  I enjoy **mentoring** (mentees have gone on to have successful **tech careers** and **even raise Venture Capital**). 
 
 
   ## Lets brainstorm!
@@ -141,16 +141,16 @@ homeMainContent: >-
   Finally, whether or not **we work together**. I'm always a person you can **reach out to and brainstorm** on challenging technical problems.
 callToActions:
   firstCTA:
+    heading: Lets Work Together!
+    linkType: external
+    linkURL: https://boujeehacker.com/contact/
+    subHeading: Click to reach out
+  secondCTA:
     heading: Visit my LinkedIn
     linkType: external
     linkURL: https://www.linkedin.com/in/31iqml/
     subHeading: There's a ton of stuff I've worked on there. (which has double
       meaning because I used to work there)
-  secondCTA:
-    heading: Contact me
-    linkType: external
-    linkURL: mailto:wharris@upscalews.com
-    subHeading: Shoot me an email. Because why not?
 seo:
   browserTitle: William Harris - Tech Advisor and Software Engineer Extraordinaire
   description: William Harris - Tech Advisor and Software Engineer Extraordinaire
