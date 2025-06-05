@@ -5,15 +5,12 @@ import { graphql,  navigate  } from "gatsby";
 
 
 /**
- * Note: this page could be named redirect. as taht is all it will do 
- * redirect to the contact page 
- * 
+ * Simple Redirect Page that redirects to a given URL
  */
 
 const ContactPage = ({ data }) => {
   const { markdownRemark: page } = data;
-
-  const redirectTo = page.frontmatter.redirectTo;
+  const { templateKey, redirectTo } = page.frontmatter;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,7 +38,7 @@ const ContactPage = ({ data }) => {
 
 export function Head() {
   return (
-    <title>Contact Redirect</title>
+    <title>Redirecting to {templateKey}</title>
   )
 }
 
@@ -51,6 +48,7 @@ export const contactPageQuery = graphql`
   query ContactPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
+        templateKey
         redirectTo
       }
     }
