@@ -47,7 +47,7 @@ homeMainContent: >-
   Prior to that
 
 
-  I was one of the **first 50 employees at** **[OpenSea](https://opensea.io/)** where I built the **[foundations of social integrations](https://twitter.com/opensea/status/1473416243688480779)** with Twitter among other yet to be released social networks **for all NFT collections and accounts** on the service. I also designed and deployed the pioneering **social media metadata service backend that powers trust an safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
+  I was one of the **first 50 employees at** **[OpenSea](https://opensea.io/)** where I built the **[foundations of social integrations](https://twitter.com/opensea/status/1473416243688480779)** with **Twitter, Instagram, and Discord** among other social networks **for all NFT collections and accounts** on the service. I also designed and deployed the pioneering **social media metadata service backend that powers trust an safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
 
 
   And before that
