@@ -26,7 +26,7 @@ homeMainContent: >-
 
   * with **venture-backed** startup teams totaling **$700+ MM raised** from 2 person seed stage to 100s at Series D.
 
-  * also, with the 4000+ engineering team of **LinkedIn** pre(and post) MSFT acquisition.
+  * also, with the 4000+ engineering team of **LinkedIn** pre(and post) MSFT acquisition where we shipped the version of [Linkedin.com/jobs](https://www.linkedin.com/jobs) that you see today.
 
 
   ## Most recently
@@ -38,37 +38,46 @@ homeMainContent: >-
   **Imagine if you could hire a top team from** [**FAANG+** / MANGA / (your fav acronym)](https://en.wikipedia.org/wiki/Big_Tech) to help overhaul your tech stack or improve your products from design to scalability. **That's this team.**
 
 
-  So far I've worked on everything from **overhauling github actions pipelines for a multi-billion dollar energy company's** mobile apps to **leading a team building a weekly sentiment analysis pipeline for a graph database of the entire energy economy**. (Which I later presented to an executive department of the federal government.)
+  So far I've worked on everything from 
 
 
-  Also I've helped multi-billion dollar med-tech and healthcare companies **build and scale critical care distributed systems** and **led an internal BCGX team to build one of the companies first multi agent Generative AI Applications** to power content generation.
+  * **overhauling github actions pipelines for a multi-billion dollar energy company**'s mobile apps 
+
+  * to **leading a team building a weekly sentiment analysis pipeline for a graph database of the entire energy economy**. (Which I later presented to an executive department of the federal government.)
+
+  * Also I've helped multi-billion dollar **med-tech and healthcare** companies **build and scale critical care distributed systems** 
+
+  * and **led an internal BCGX team to build one of the companies first multi agent Generative AI Applications** to power content generation.
 
 
   Prior to that
 
 
-  I was one of the **first 50 employees at** **[OpenSea](https://opensea.io/)** where I built the **[foundations of social integrations](https://twitter.com/opensea/status/1473416243688480779)** with **Twitter, Instagram, and Discord** among other social networks **for all NFT collections and accounts** on the service. I also designed and deployed the pioneering **social media metadata service backend that powers trust an safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
+  I was one of the **first 50 employees at** **[OpenSea](https://opensea.io/)** where 
 
 
-  And before that
+  * I built the **[foundations of social integrations](https://twitter.com/opensea/status/1473416243688480779)** with **Twitter, Instagram, and Discord** among other social networks **for all NFT collections and accounts** on the service.
 
-
-  **Helping to build a business** with Kubernetes ☸ (k8s) and crystal lang as a **founding core maintainer** of the open source [ **https://github.com/cncf/cnf-testsuite/**](https://github.com/lfn-cnti/testsuite) **a project currently with over ~175 stars on github** 
-
-
-  **tl:dr?** the **suite** assesses that **k8s** apps built in the **1.74 trillion telecom 📞📱☎️📡 industry can scale** for the **CNCF** whose members include **Google and Amazon** among other cloud giants [https://www.**cncf**.io/about/members/](https://www.cncf.io/about/members/)
-
-
-  Which I **[gave a talk](https://youtu.be/n8g60VglyUw?list=PLe1-A91ZPTpAhkbyQSFbF5DdZEFhlMxEL&t=694)** about at the **[2021 Crystal 1.0 Conference](https://crystal-lang.org/conference/)**
+  *  I also designed and deployed the pioneering **social media metadata service backend that powers trust an safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
 
 
   ## Before that
 
 
+  * **Helping to build a [co-op business](https://vulk.coop/)** with Kubernetes ☸ (k8s) and crystal lang as a **founding core maintainer** of the open source [ **https://github.com/cncf/cnf-testsuite/**](https://github.com/lfn-cnti/testsuite) **a project currently with over 175 stars on github** 
+
+  * **tl:dr?** the **suite** assesses that **k8s** apps built in the **1.74 trillion telecom 📞📱☎️📡 industry can scale** for the **CNCF** whose members include **Google and Amazon** among other cloud giants [https://www.**cncf**.io/about/members/](https://www.cncf.io/about/members/)
+
+  * [](https://www.cncf.io/about/members/)Which I **[gave a talk](https://youtu.be/n8g60VglyUw?list=PLe1-A91ZPTpAhkbyQSFbF5DdZEFhlMxEL&t=694)** about at the **[2021 Crystal 1.0 Conference](https://crystal-lang.org/conference/)**
+
+
+  Prior to that
+
+
   I dove deeply into web app dev and built **code bases from scratch to 100,000s+** lines of code 💻 on 
 
 
-  * **Frontend** (js, &lt;insert flavor of the month framework &gt;, etc.)  
+  * **Frontend** (js typescript, &lt;insert flavor of the month framework &gt;, etc.)  
 
   * **Ruby / Rails** or **Node.js** backends, 
 
