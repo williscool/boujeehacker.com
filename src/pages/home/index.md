@@ -35,7 +35,7 @@ homeMainContent: >-
   I've been working with **BCGX** (<https://www.bcg.com/x/>) the tech build and design unit of **[BCG](https://en.wikipedia.org/wiki/Big_Three_(management_consultancies))**. 
 
 
-  **Imagine if you could hire a top team from** [**FAANG+** / MANGA / (your fav acronym)](https://en.wikipedia.org/wiki/Big_Tech) to help overhaul your tech stack or improve your products from design to scalability. **That's this team.**
+  **Imagine if you could hire a top team from** [**FAANG+** / MANGA](https://en.wikipedia.org/wiki/Big_Tech) to overhaul your tech stack or improve your products from design to scalability. **That's this team.**
 
 
   So far I've worked on everything from 
@@ -59,8 +59,6 @@ homeMainContent: >-
   * I built the **[foundations of social integrations](https://twitter.com/opensea/status/1473416243688480779)** with **Twitter, Instagram, and Discord** among other social networks **for all NFT collections and accounts** on the service.
 
   * I also designed and deployed the pioneering **social media metadata service backend that powers trust and safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
-
-
 
 
   ## Want to work together?
