@@ -10,7 +10,7 @@ import { graphql,  navigate  } from "gatsby";
 
 const RedirectPage = ({ data }) => {
   const { markdownRemark: page } = data;
-  const { templateKey, redirectTo } = page.frontmatter;
+  const { redirectTo } = page.frontmatter;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,7 +38,7 @@ const RedirectPage = ({ data }) => {
 
 export function Head() {
   return (
-    <title>Redirecting to {templateKey}</title>
+    <title>Redirecting...</title>
   )
 }
 
