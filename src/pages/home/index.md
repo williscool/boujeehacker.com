@@ -14,7 +14,7 @@ homeMainContent: >-
   ### Atlanta 🌆 based ex Silicon Valley software engineer and tech advisor
 
 
-  I'm a full-stack product engineer 👨🏿‍🔬 with 14 years of experience building software primarily on the web and mobile at scale for Silicon Valley Tech Giants (ex-[LinkedIn](https://www.linkedin.com/)), VC backed startups (ex-[OpenSea](https://opensea.io/)), and Open Source Projects ([cncf/cnf-testsuite](https://github.com/cncf/cnf-testsuite/)).
+  I'm a full-stack product engineer 👨🏿‍🔬 with 14 years of experience building software primarily on the web and mobile at scale for Silicon Valley Tech Giants (ex-[LinkedIn](https://www.linkedin.com/)), VC backed startups (ex-[OpenSea](https://opensea.io/)), and Open Source Projects ([cncf/cnf-testsuite](https://github.com/lfn-cnti/testsuite)).
 
 
   ### Throughout my career, I've built software cross-platform:
@@ -58,10 +58,21 @@ homeMainContent: >-
 
   * I built the **[foundations of social integrations](https://twitter.com/opensea/status/1473416243688480779)** with **Twitter, Instagram, and Discord** among other social networks **for all NFT collections and accounts** on the service.
 
-  *  I also designed and deployed the pioneering **social media metadata service backend that powers trust an safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
+  * I also designed and deployed the pioneering **social media metadata service backend that powers trust and safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
 
 
-  ## Before that
+
+
+  ## Want to work together?
+
+
+  Reach out!: [https://boujeehacker.com/contact](https://boujeehacker.com/contact/)
+
+
+  Want to learn about my process: [](https://boujeehacker.com/contact/)[](https://boujeehacker.com/contact/)[](https://boujeehacker.com/contact/)[Check out this primer](https://docs.google.com/presentation/d/17srZbSNvvgtIGhutIbKCqmfZl6QMCmcLXl2viDqNdLc/edit?slide=id.gc6f9e470d_0_0#slide=id.gc6f9e470d_0_0) 
+
+
+  ## Previous Work
 
 
   * **Helping to build a [co-op business](https://vulk.coop/)** with Kubernetes ☸ (k8s) and crystal lang as a **founding core maintainer** of the open source [ **https://github.com/cncf/cnf-testsuite/**](https://github.com/lfn-cnti/testsuite) **a project currently with over 175 stars on github** 
@@ -71,7 +82,7 @@ homeMainContent: >-
   * [](https://www.cncf.io/about/members/)Which I **[gave a talk](https://youtu.be/n8g60VglyUw?list=PLe1-A91ZPTpAhkbyQSFbF5DdZEFhlMxEL&t=694)** about at the **[2021 Crystal 1.0 Conference](https://crystal-lang.org/conference/)**
 
 
-  Prior to that
+  Before that
 
 
   I dove deeply into web app dev and built **code bases from scratch to 100,000s+** lines of code 💻 on 
@@ -82,6 +93,9 @@ homeMainContent: >-
   * **Ruby / Rails** or **Node.js** backends, 
 
   * with **PostgreSQL** in general as the data store.
+
+
+  At startups before landing at Linkedin
 
 
   ## About the biz
