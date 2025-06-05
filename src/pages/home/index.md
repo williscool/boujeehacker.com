@@ -32,7 +32,10 @@ homeMainContent: >-
   ## Most recently
 
 
-  I've been working with BCGX (<https://www.bcg.com/x/>) the tech build and design unit of [BCG](https://en.wikipedia.org/wiki/Big_Three_(management_consultancies)). **Imagine if you could hire a top team from** [**FAANG+** / MANGA / (your fav acronym)](https://en.wikipedia.org/wiki/Big_Tech) to help overhaul your tech stack or improve your products from design to scalability. **That's this team.**
+  I've been working with **BCGX** (<https://www.bcg.com/x/>) the tech build and design unit of **[BCG](https://en.wikipedia.org/wiki/Big_Three_(management_consultancies))**. 
+
+
+  **Imagine if you could hire a top team from** [**FAANG+** / MANGA / (your fav acronym)](https://en.wikipedia.org/wiki/Big_Tech) to help overhaul your tech stack or improve your products from design to scalability. **That's this team.**
 
 
   So far I've worked on everything from **overhauling github actions pipelines for a multi-billion dollar energy companys** mobile apps to **leading a team building a weekly sentiment analysis pipeline for a graph database of the entire energy economy**. Which I presented to an executive department of the federal government. 
@@ -44,7 +47,7 @@ homeMainContent: >-
   Prior to that
 
 
-  One of the **first 50 employees at** **[OpenSea](https://opensea.io/)** where I built the **[foundations of social integrations](https://twitter.com/opensea/status/1473416243688480779)** with Twitter among other yet to be released social networks **for all NFT collections and accounts** on the service. I also designed and deployed the pioneering **social media metadata service backend that powers trust an safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
+  I was one of the **first 50 employees at** **[OpenSea](https://opensea.io/)** where I built the **[foundations of social integrations](https://twitter.com/opensea/status/1473416243688480779)** with Twitter among other yet to be released social networks **for all NFT collections and accounts** on the service. I also designed and deployed the pioneering **social media metadata service backend that powers trust an safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
 
 
   And before that
