@@ -1,19 +1,16 @@
 import React, { useEffect } from 'react'
 import Layout from "../components/Layout";
-import "../styles/contact.scss";
+import "../styles/redirect.scss";
 import { graphql,  navigate  } from "gatsby";
 
 
 /**
- * Note: this page could be named redirect. as taht is all it will do 
- * redirect to the contact page 
- * 
+ * Simple Redirect Page that redirects to a given URL
  */
 
-const ContactPage = ({ data }) => {
+const RedirectPage = ({ data }) => {
   const { markdownRemark: page } = data;
-
-  const redirectTo = page.frontmatter.redirectTo;
+  const { redirectTo } = page.frontmatter;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,11 +21,11 @@ const ContactPage = ({ data }) => {
   }, [])
 
   return <Layout>
-    <div className="contactRedirect  container">
-      <h1 className="contactRedirect-title">Redirecting...</h1>
+    <div className="redirect container">
+      <h1 className="redirect-title">Redirecting...</h1>
       <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3d4eWZ2dThuaWdnM3ZqdHdseWx1cGpxaGRjbndsMmFmcW0yMjl1eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1kkxWqT5nvLXupUTwK/giphy.webp" alt="Computer Doggo"></img>
       <a style={{marginTop: 40}} href={redirectTo}> Computer Doggo taking you there! </a>
-      <p className="contactRedirect-description">{`
+      <p className="redirect-description">{`
     (___________________________()6 \`-,
     (   ______________________   /''"\`
     //\\                      //\\
@@ -41,16 +38,17 @@ const ContactPage = ({ data }) => {
 
 export function Head() {
   return (
-    <title>Contact Redirect</title>
+    <title>Redirecting...</title>
   )
 }
 
-export default ContactPage;
+export default RedirectPage;
 
-export const contactPageQuery = graphql`
-  query ContactPage($id: String!) {
+export const redirectPageQuery = graphql`
+  query RedirectPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
+        templateKey
         redirectTo
       }
     }

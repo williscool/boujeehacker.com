@@ -9,7 +9,7 @@ menuItems:
     linkURL: https://boujeehacker.substack.com
   - label: work together
     linkType: external
-    linkURL: /contact
+    linkURL: /work-together
   - label: contact
     linkType: internal
     linkURL: /contact
