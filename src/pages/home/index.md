@@ -67,7 +67,7 @@ homeMainContent: >-
   Reach out!: [https://boujeehacker.com/contact](https://boujeehacker.com/contact/)
 
 
-  What's my process?: [](https://boujeehacker.com/contact/)[](https://boujeehacker.com/contact/)[](https://boujeehacker.com/contact/)[Check out this primer](https://docs.google.com/presentation/d/17srZbSNvvgtIGhutIbKCqmfZl6QMCmcLXl2viDqNdLc/edit?slide=id.gc6f9e470d_0_0#slide=id.gc6f9e470d_0_0) 
+  What's my process?: **[Check out this primer at https://boujeehacker.com/work-together](https://boujeehacker.com/work-together)**
 
 
   ## Previous Work
