@@ -23,8 +23,12 @@ const TemplateWrapper = ({ footerData = null, navbarData = null, children }) => 
             api_host: 'https://us.i.posthog.com', // Use eu.i.posthog.com for EU instances
             segment: window.analytics, // Pass window.analytics here - NOTE: 'window.' is important segment
             capture_pageview: false, // You want this false if you are going to use segment's 'analytics.page()' for pageviews
+            capture_pageleave: true,
             // When the posthog library has loaded, call 'analytics.page()' explicitly. // When
-            loaded: () => window.analytics.page(),
+            loaded: (posthog) => {
+              window.analytics.page();
+            },
+            debug: true,
           });
         })
 
