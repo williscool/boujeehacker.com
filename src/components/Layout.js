@@ -74,6 +74,9 @@ const TemplateWrapper = ({ footerData = null, navbarData = null, children }) => 
         );
       });
     `}</Script>  
+
+    <Script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="1ndA036jtJzADqezo" data-version="062024"></Script>
+
     <Navbar data={navbarData} />
     <main>{children}</main>
     <Footer data={footerData} />
