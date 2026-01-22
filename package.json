@@ -15,7 +15,7 @@
     "gatsby-remark-images": "^7.13.1",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.23",
     "lodash-webpack-plugin": "^0.11.4",
     "parcel-bundler": "^1.9.4",
     "prop-types": "^15.6.0",
