@@ -2,7 +2,7 @@ backend:
   name: github
   repo: williscool/boujeehacker.com
 
-media_folder: static/img
+media_folder: public/img
 public_folder: /img
 
 display_url: https://boujeehacker.com/

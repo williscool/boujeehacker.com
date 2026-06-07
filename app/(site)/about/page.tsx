@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
-import "../../src/styles/about-page.scss";
-import HTMLContent from "../_components/Content";
-import { getAboutPage } from "../../lib/content";
+import "../../../src/styles/about-page.scss";
+import HTMLContent from "../../_components/Content";
+import { getAboutPage } from "../../../lib/content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { frontmatter } = await getAboutPage();

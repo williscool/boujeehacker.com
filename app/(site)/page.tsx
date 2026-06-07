@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import "../src/styles/home.scss";
-import CustomLink from "./_components/CustomLink";
-import MarkdownLinkInBlank from "./_components/MarkdownLinkInBlank";
-import { getHomePage } from "../lib/content";
+import "../../src/styles/home.scss";
+import CustomLink from "../_components/CustomLink";
+import MarkdownLinkInBlank from "../_components/MarkdownLinkInBlank";
+import { getHomePage } from "../../lib/content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { frontmatter: home } = await getHomePage();

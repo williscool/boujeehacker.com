@@ -232,7 +232,7 @@ We cannot use a server-side 301 in `next.config.js` `redirects: []` because unde
 
 **4b. Static admin page.** `app/admin/page.tsx` — a client component that returns minimal HTML and loads the Sveltia bundle via `<Script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" strategy="beforeInteractive">`.
 
-**4c. Preview templates.** Port the six files under `src/cms/preview-templates/` to `app/admin/previews/*.tsx`. Convert to TypeScript. Call `CMS.registerPreviewTemplate(...)` from a `'use client'` registrar (`app/admin/Registrar.tsx`) loaded on the admin route. Sveltia exposes the same registration API as Decap, so each preview port is purely a JS→TS conversion plus updated SCSS import paths.
+**4c. Preview templates.** ~~Port the six files under `src/cms/preview-templates/` to `app/admin/previews/*.tsx`.~~ **Skipped this checkpoint** (per user decision). Sveltia loads with no custom previews — editors see Sveltia's generic editor pane rather than a live styled preview. Captured as a follow-up: porting requires extracting presentational sub-components from the new server pages (since `HomePageTemplate`/`AboutPageTemplate`/etc. exports no longer exist in the Next.js tree).
 
 **4d. Verify auth + edit flow end-to-end.** Log into the deployed preview build (Sveltia uses the same GitHub OAuth backend Decap was using — no auth re-config needed). Edit one field on each of the six collections, confirm the preview renders, confirm a GitHub PR is opened.
 
