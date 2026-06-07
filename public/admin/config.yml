@@ -60,8 +60,8 @@ collections:
           fields:
             [
               { label: "Name", name: "name", widget: "string" },
-              { label: "Latitude", name: "mapsLatitude", widget: "number", valueType: "float" },
-              { label: "Longitude", name: "mapsLongitude", widget: "number", valueType: "float" },
+              { label: "Latitude", name: "mapsLatitude", widget: "number", value_type: "float" },
+              { label: "Longitude", name: "mapsLongitude", widget: "number", value_type: "float" },
             ],
         }
   - name: "pages"
