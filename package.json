@@ -3,6 +3,7 @@
   "description": "boujeehacker.com the website a Gatsby and Netlify CMS project",
   "version": "2.0.0",
   "author": "William Harris",
+  "packageManager": "pnpm@11.4.0",
   "dependencies": {
     "date-fns": "^4.1.0",
     "decap-cms-app": "^3.3.3",
