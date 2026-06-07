@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import "./globals.scss";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

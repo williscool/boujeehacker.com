@@ -1,5 +1,6 @@
 import Script from "next/script";
 import type { ReactNode } from "react";
+import "../globals.scss";
 import Navbar from "../_components/Navbar";
 import Footer from "../_components/Footer";
 import { getLayoutData } from "../../lib/content";
