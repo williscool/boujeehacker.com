@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "../../src/styles/404.scss";
 
 export const metadata: Metadata = { title: "Page Not Found" };
 

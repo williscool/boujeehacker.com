@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "../../../src/styles/past-meetups-page.scss";
 import HTMLContent from "../../_components/Content";
 import MeetupBlock from "../../_components/MeetupBlock";
 import { getPastMeetups, getPastMeetupsPage } from "../../../lib/content";

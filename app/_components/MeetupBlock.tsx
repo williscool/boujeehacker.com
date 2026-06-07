@@ -1,4 +1,3 @@
-import "../../src/styles/meetup.scss";
 import HeadshotPlaceholder from "../../src/img/headshot-placeholder.svg";
 import type { MeetupDoc } from "../../lib/content-types";
 

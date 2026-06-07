@@ -1,5 +1,4 @@
 import CustomLink from "./CustomLink";
-import "../../src/components/Navbar/styles.scss";
 import type { NavbarFrontmatter } from "../../lib/content-types";
 
 interface NavbarProps {

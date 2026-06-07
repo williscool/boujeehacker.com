@@ -1,4 +1,3 @@
-import "../../src/components/Footer/styles.scss";
 import type { FooterFrontmatter } from "../../lib/content-types";
 
 interface FooterProps {

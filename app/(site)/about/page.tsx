@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
-import "../../../src/styles/about-page.scss";
 import HTMLContent from "../../_components/Content";
 import { getAboutPage } from "../../../lib/content";
 
