@@ -6,7 +6,6 @@ export default function AdminPage() {
   return (
     <>
       <Script
-        type="module"
         src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"
         strategy="beforeInteractive"
       />
