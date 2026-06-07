@@ -1,5 +1,6 @@
-import HeadshotPlaceholder from "../../src/img/headshot-placeholder.svg";
 import type { MeetupDoc } from "../../lib/content-types";
+
+const HEADSHOT_PLACEHOLDER = "/img/headshot-placeholder.svg";
 
 interface MeetupBlockProps {
   meetup: MeetupDoc;
@@ -26,7 +27,7 @@ export default function MeetupBlock({ meetup, className }: MeetupBlockProps) {
             <div className="meetup-presenterImageContainer">
               <img
                 className="meetup-presenterImage"
-                src={presenter.image ? presenter.image : HeadshotPlaceholder.src}
+                src={presenter.image ? presenter.image : HEADSHOT_PLACEHOLDER}
                 alt={
                   presenter.image
                     ? presenter.name

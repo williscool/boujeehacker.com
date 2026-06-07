@@ -1,60 +1,36 @@
 {
   "name": "boujeehacker.com",
-  "description": "boujeehacker.com the website a Gatsby and Netlify CMS project",
-  "version": "2.0.0",
+  "description": "boujeehacker.com the website, a Next.js + Sveltia CMS project",
+  "version": "3.0.0",
   "author": "William Harris",
   "packageManager": "pnpm@11.4.0",
   "dependencies": {
     "date-fns": "^4.1.0",
-    "decap-cms-app": "^3.3.3",
-    "dotenv": "^16.4.5",
-    "gatsby": "^5.13.7",
-    "gatsby-plugin-decap-cms": "^4.0.4",
-    "gatsby-plugin-google-analytics": "^5.13.1",
-    "gatsby-plugin-netlify": "^5.1.1",
-    "gatsby-plugin-sass": "^6.13.1",
-    "gatsby-remark-images": "^7.13.1",
-    "gatsby-source-filesystem": "^5.13.1",
-    "gatsby-transformer-remark": "^6.13.1",
     "gray-matter": "^4.0.3",
-    "lodash": "^4.17.5",
-    "lodash-webpack-plugin": "^0.11.4",
     "next": "^16.2.7",
-    "parcel-bundler": "^1.9.4",
-    "prop-types": "^15.6.0",
     "react": "^18.2.0",
-    "react-commonmark": "^3.0.0",
     "react-dom": "^18.2.0",
     "react-icons": "^3.8.0",
     "react-markdown": "^10.1.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "sass": "^1.80.5",
-    "uuid": "^3.2.1"
+    "sass": "^1.80.5"
   },
   "keywords": [
-    "gatsby"
+    "nextjs",
+    "sveltia-cms"
   ],
   "license": "MIT",
-  "main": "n/a",
   "scripts": {
-    "start": "pnpm run develop",
-    "clean": "rimraf .cache public",
-    "build": "pnpm run clean && gatsby build",
-    "develop": "pnpm run clean && gatsby develop",
-    "serve": "gatsby serve",
-    "dev:next": "next dev",
-    "build:next": "next build",
-    "typecheck": "tsc --noEmit",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^25.9.2",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.7",
-    "prettier": "^1.7.4",
-    "rimraf": "^2.6.2",
     "typescript": "^6.0.3"
   }
 }
