@@ -43,7 +43,7 @@ exports.createPages = ({ actions, graphql }) => {
       let component, pathName;
       if (edge.node.frontmatter.templateKey === "home-page") {
         pathName = "/";
-        component = path.resolve(`src/pages/index.js`);
+        component = path.resolve(`src/content/index.js`);
       } else if (["contact", "work-together"].includes(edge.node.frontmatter.templateKey)) {
         pathName = edge.node.frontmatter.path || edge.node.fields.slug;
         component = path.resolve(`src/templates/redirect.js`);

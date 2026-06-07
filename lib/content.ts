@@ -16,7 +16,7 @@ import type {
   RedirectFrontmatter,
 } from "./content-types";
 
-const CONTENT_ROOT = path.join(process.cwd(), "src", "pages");
+const CONTENT_ROOT = path.join(process.cwd(), "src", "content");
 
 const markdownProcessor = remark().use(remarkHtml, { sanitize: false });
 
