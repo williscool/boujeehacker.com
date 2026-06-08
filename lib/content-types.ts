@@ -30,6 +30,7 @@ export interface HomeSocialLink {
 
 export interface HomeFrontmatter {
   templateKey: "home-page";
+  avatar?: ImageRef;
   identityLine: string;
   selectedWork: SelectedWorkItem[];
   nowLine: string;

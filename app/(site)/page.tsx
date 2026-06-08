@@ -21,8 +21,30 @@ export default async function HomePage() {
 
   return (
     <Container>
-      <div className="py-16 sm:py-24 space-y-14">
+      <div className="py-16 sm:py-24 space-y-12">
+        {home.avatar && (
+          <img
+            src={home.avatar.image}
+            alt={home.avatar.imageAlt}
+            className="h-24 w-24 rounded-full object-cover border border-border"
+          />
+        )}
+
         <IdentityLine markdown={home.identityLine} />
+
+        <div className="flex flex-col gap-5 items-start">
+          <CTAButton href={home.primaryCTA.url}>
+            {home.primaryCTA.label}
+          </CTAButton>
+          <SocialLinkRow
+            links={home.socialLinks.map((l) => ({
+              label: l.label,
+              href: l.url,
+            }))}
+          />
+        </div>
+
+        <NowLine markdown={home.nowLine} />
 
         <section aria-labelledby="selected-work-heading">
           <h2
@@ -39,20 +61,6 @@ export default async function HomePage() {
             ))}
           </ul>
         </section>
-
-        <NowLine markdown={home.nowLine} />
-
-        <div className="flex flex-col gap-5 items-start">
-          <CTAButton href={home.primaryCTA.url}>
-            {home.primaryCTA.label}
-          </CTAButton>
-          <SocialLinkRow
-            links={home.socialLinks.map((l) => ({
-              label: l.label,
-              href: l.url,
-            }))}
-          />
-        </div>
       </div>
     </Container>
   );

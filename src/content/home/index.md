@@ -1,17 +1,20 @@
 ---
 templateKey: home-page
+avatar:
+  image: /img/fb.jpg
+  imageAlt: William Harris
 identityLine: |-
   I'm William Harris — I build software real users depend on, from 100M-user systems at [LinkedIn](https://www.linkedin.com/in/31iqml/) to early [OpenSea](https://opensea.io/).
 selectedWork:
-  - title: cnf-testsuite
-    outcome: CNCF project, 175+ stars, 2021 Crystal conference talk
-    url: https://github.com/lfn-cnti/testsuite
   - title: BCGX Snowflake pipeline
     outcome: 10M datapoints/day; $10–20M/yr customer savings in transportation logistics
-    url: https://www.bcg.com/x/
+    url: /about/#bcgx
   - title: OpenSea social integrations
     outcome: Founding social-integrations and trust-and-safety metadata work at the largest NFT marketplace
     url: https://twitter.com/opensea/status/1473416243688480779
+  - title: cnf-testsuite
+    outcome: CNCF project, 175+ stars, 2021 Crystal conference talk
+    url: https://github.com/lfn-cnti/testsuite
 nowLine: |-
   Building RecoverMoney on Whop; advising founders scaling vibe-coded apps.
 primaryCTA:

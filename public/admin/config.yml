@@ -42,6 +42,18 @@ collections:
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
           - {
+              label: "Avatar",
+              name: "avatar",
+              widget: "object",
+              required: false,
+              hint: "Small headshot rendered above the identity line.",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Image Description", name: "imageAlt", widget: "string" },
+                ],
+            }
+          - {
               label: "Identity Line",
               name: "identityLine",
               widget: "markdown",

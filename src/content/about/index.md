@@ -13,7 +13,7 @@ I'm a full-stack product engineer with 14 years building software primarily on t
 
 Across that career I've shipped cross-platform: from pre-launch products to userbases in the hundred millions, across 12+ technology stacks, with venture-backed startup teams totaling $700M+ raised — from two-person seed stage to 100s of engineers at Series D — and inside the 4000+ engineering org of LinkedIn pre- and post-Microsoft acquisition, where I shipped the version of [Linkedin.com/jobs](https://www.linkedin.com/jobs) you see today.
 
-## Most recently
+<h2 id="bcgx">Most recently — BCGX</h2>
 
 I've been working with [BCGX](https://www.bcg.com/x/), the tech build and design unit of [BCG](<https://en.wikipedia.org/wiki/Big_Three_(management_consultancies)>). The pitch is: hire a top team from [FAANG / MANGA](https://en.wikipedia.org/wiki/Big_Tech) to overhaul your tech stack or improve your product from design to scale. That's this team.
 
