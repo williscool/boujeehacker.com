@@ -10,6 +10,7 @@ import type {
   HomeFrontmatter,
   NavbarFrontmatter,
   RedirectFrontmatter,
+  WorkTogetherFrontmatter,
 } from "./content-types";
 
 const CONTENT_ROOT = path.join(process.cwd(), "src", "content");
@@ -33,9 +34,15 @@ export async function getAboutPage(): Promise<ContentDoc<AboutFrontmatter>> {
 }
 
 export async function getRedirectPage(
-  slug: "contact" | "work-together"
+  slug: "contact"
 ): Promise<ContentDoc<RedirectFrontmatter>> {
   return readMarkdown<RedirectFrontmatter>(`${slug}/index.md`);
+}
+
+export async function getWorkTogetherPage(): Promise<
+  ContentDoc<WorkTogetherFrontmatter>
+> {
+  return readMarkdown<WorkTogetherFrontmatter>("work-together/index.md");
 }
 
 export async function getNavbar(): Promise<ContentDoc<NavbarFrontmatter>> {

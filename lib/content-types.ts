@@ -12,39 +12,36 @@ export interface SeoFields {
   keywords?: string;
 }
 
-export interface CallToAction {
-  heading: string;
-  subHeading: string;
-  linkType: LinkType;
-  linkURL: string;
+export interface SelectedWorkItem {
+  title: string;
+  outcome: string;
+  url: string;
+}
+
+export interface PrimaryCTA {
+  label: string;
+  url: string;
+}
+
+export interface HomeSocialLink {
+  label: string;
+  url: string;
 }
 
 export interface HomeFrontmatter {
   templateKey: "home-page";
-  title: string;
-  headerImage?: ImageRef;
-  homeMainContent: string;
-  callToActions: {
-    firstCTA: CallToAction;
-    secondCTA: CallToAction;
-  };
+  identityLine: string;
+  selectedWork: SelectedWorkItem[];
+  nowLine: string;
+  primaryCTA: PrimaryCTA;
+  socialLinks: HomeSocialLink[];
   seo: SeoFields;
-}
-
-export interface AboutOrganizerEntry extends ImageRef {
-  name: string;
 }
 
 export interface AboutFrontmatter {
   templateKey: "about-page";
   title: string;
-  mainImage: ImageRef;
-  gallery: ImageRef[];
-  developerGroups: string;
-  organizers: {
-    title: string;
-    gallery: AboutOrganizerEntry[];
-  };
+  identityLine: string;
   seo: SeoFields;
 }
 
@@ -81,8 +78,16 @@ export interface FooterFrontmatter {
 }
 
 export interface RedirectFrontmatter {
-  templateKey: "contact" | "work-together";
+  templateKey: "contact";
   redirectTo: string;
+}
+
+export interface WorkTogetherFrontmatter {
+  templateKey: "work-together";
+  title: string;
+  icpLine: string;
+  deckUrl?: string;
+  seo: SeoFields;
 }
 
 export interface ContentDoc<F> {
