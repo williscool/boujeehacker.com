@@ -48,41 +48,6 @@ export interface AboutFrontmatter {
   seo: SeoFields;
 }
 
-export interface PastMeetupsFrontmatter {
-  templateKey: "past-meetups-page";
-  title: string;
-  path?: string;
-  seo: SeoFields;
-}
-
-export interface PresenterLink {
-  linkText: string;
-  linkURL: string;
-}
-
-export interface MeetupPresenter {
-  name: string;
-  image?: string;
-  presentationTitle?: string;
-  text: string;
-  links?: PresenterLink[];
-}
-
-export interface MeetupLocation {
-  name: string;
-  mapsLink?: string;
-  mapsLatitude?: number;
-  mapsLongitude?: number;
-}
-
-export interface MeetupFrontmatter {
-  templateKey?: "meetup";
-  title: string;
-  date: string | Date;
-  presenters: MeetupPresenter[];
-  location: MeetupLocation;
-}
-
 export interface NavbarMenuItem {
   label: string;
   linkType: LinkType;
@@ -123,12 +88,4 @@ export interface RedirectFrontmatter {
 export interface ContentDoc<F> {
   frontmatter: F;
   html: string;
-}
-
-export interface MeetupDoc {
-  slug: string;
-  frontmatter: MeetupFrontmatter;
-  html: string;
-  rawDate: Date;
-  formattedDate: string;
 }

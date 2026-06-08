@@ -3,16 +3,12 @@ import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
-import { format, parseISO } from "date-fns";
 import type {
   AboutFrontmatter,
   ContentDoc,
   FooterFrontmatter,
   HomeFrontmatter,
-  MeetupDoc,
-  MeetupFrontmatter,
   NavbarFrontmatter,
-  PastMeetupsFrontmatter,
   RedirectFrontmatter,
 } from "./content-types";
 
@@ -34,12 +30,6 @@ export async function getHomePage(): Promise<ContentDoc<HomeFrontmatter>> {
 
 export async function getAboutPage(): Promise<ContentDoc<AboutFrontmatter>> {
   return readMarkdown<AboutFrontmatter>("about/index.md");
-}
-
-export async function getPastMeetupsPage(): Promise<
-  ContentDoc<PastMeetupsFrontmatter>
-> {
-  return readMarkdown<PastMeetupsFrontmatter>("pastMeetups/index.md");
 }
 
 export async function getRedirectPage(
@@ -64,44 +54,3 @@ export async function getLayoutData(): Promise<{
   return { navbar: navbar.frontmatter, footer: footer.frontmatter };
 }
 
-export async function getAllMeetups(): Promise<MeetupDoc[]> {
-  const dir = path.join(CONTENT_ROOT, "meetups");
-  const entries = await fs.readdir(dir);
-  const docs = await Promise.all(
-    entries
-      .filter((f) => f.endsWith(".md"))
-      .map(async (file): Promise<MeetupDoc> => {
-        const slug = file.replace(/\.md$/, "");
-        const doc = await readMarkdown<MeetupFrontmatter>(`meetups/${file}`);
-        const rawDate =
-          doc.frontmatter.date instanceof Date
-            ? doc.frontmatter.date
-            : parseISO(doc.frontmatter.date);
-        return {
-          slug,
-          frontmatter: doc.frontmatter,
-          html: doc.html,
-          rawDate,
-          formattedDate: format(rawDate, "MMMM do yyyy '@' h:mm a"),
-        };
-      })
-  );
-  return docs.sort((a, b) => b.rawDate.getTime() - a.rawDate.getTime());
-}
-
-export async function getUpcomingMeetup(
-  now: Date = new Date()
-): Promise<MeetupDoc | null> {
-  const meetups = await getAllMeetups();
-  const future = meetups
-    .filter((m) => m.rawDate.getTime() > now.getTime())
-    .sort((a, b) => a.rawDate.getTime() - b.rawDate.getTime());
-  return future[0] ?? null;
-}
-
-export async function getPastMeetups(
-  now: Date = new Date()
-): Promise<MeetupDoc[]> {
-  const meetups = await getAllMeetups();
-  return meetups.filter((m) => m.rawDate.getTime() < now.getTime());
-}
