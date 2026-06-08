@@ -16,7 +16,7 @@ export default function PreviewPage() {
           </p>
           <div className="mt-3">
             <IdentityLine
-              markdown={`I'm William Harris. I build software real users depend on, from scrappy startups like early [OpenSea](https://opensea.io) to 300M+-user systems at [LinkedIn](https://linkedin.com/in/31iqml).`}
+              markdown={`I'm William Harris. I build software real users depend on, from scrappy startups like early [OpenSea](https://opensea.io) to 300MMM+-user systems at [LinkedIn](https://linkedin.com/in/31iqml).`}
             />
           </div>
         </section>

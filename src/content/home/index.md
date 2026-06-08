@@ -3,7 +3,7 @@ templateKey: home-page
 avatar:
   image: /img/fb.jpg
   imageAlt: William Harris
-identityLine: I'm [William Harris](/about). I build software real users depend on, from scrappy startups like early [OpenSea](https://opensea.io/) to 300M+ user systems at [LinkedIn](https://www.linkedin.com/in/31iqml/).
+identityLine: I'm [William Harris](/about). I build software real users depend on, from scrappy startups like early [OpenSea](https://opensea.io/) to 300MM+ user systems at [LinkedIn](https://www.linkedin.com/in/31iqml/).
 selectedWork:
   - title: BCGX Client Snowflake pipeline; Senior Forward-Deployed Engineer
     outcome: 10M datapoints/day; $10–20M/yr customer savings in transportation logistics
@@ -28,6 +28,6 @@ socialLinks:
 seo:
   browserTitle: William Harris | software engineer and tech advisor
   title: William Harris | software engineer and tech advisor
-  description: I build software real users depend on, from scrappy startups like early OpenSea to 300M+-user systems at LinkedIn. Now helping founders ship and scale vibe-coded apps.
+  description: I build software real users depend on, from scrappy startups like early OpenSea to 300MM+-user systems at LinkedIn. Now helping founders ship and scale vibe-coded apps.
   keywords: software engineering, tech advisor, vibe coding, AI apps, scaling, full-stack, startups, consulting, forward deployed engineering, FDE, BCGX, OpenSea, LinkedIn, cnf-testsuite
 ---
