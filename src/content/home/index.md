@@ -8,7 +8,7 @@ identityLine: |-
 selectedWork:
   - title: BCGX Client Snowflake pipeline; Senior Forward-Deployed Engineer
     outcome: 10M datapoints/day; $10–20M/yr customer savings in transportation logistics
-    url: /about/#bcgx
+    url: /about/#fde
   - title: OpenSea social integrations
     outcome: Founding social-integrations and trust-and-safety metadata work at the largest NFT marketplace
     url: https://twitter.com/opensea/status/1473416243688480779
