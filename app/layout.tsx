@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Fraunces, Inter } from "next/font/google";
+import { Fraunces, Geist } from "next/font/google";
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -7,7 +7,7 @@ const display = Fraunces({
   display: "swap",
 });
 
-const sans = Inter({
+const sans = Geist({
   subsets: ["latin"],
   variable: "--font-sans-family",
   display: "swap",
