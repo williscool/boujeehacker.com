@@ -25,8 +25,8 @@ socialLinks:
     url: https://www.linkedin.com/in/31iqml/
   - label: GitHub
     url: https://github.com/williscool
-  - label: Email
-    url: mailto:wharris@upscalews.com
+  - label: Twitter (X)
+    url: https://x.com/boujeehacker
 seo:
   browserTitle: William Harris — software engineer and tech advisor
   title: William Harris — software engineer and tech advisor
