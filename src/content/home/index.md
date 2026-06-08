@@ -14,7 +14,7 @@ selectedWork:
   - title: cnf-testsuite
     outcome: CNCF project, 175+ stars, 2021 Crystal conference talk
     url: https://github.com/lfn-cnti/testsuite
-nowLine: '[Advising ](https://boujeehacker.com/work-together/)founders and software teams scaling apps.'
+nowLine: 'FDE at [BCGX](https://bcg.com/x/); taking on a few founders scaling AI-built apps past the rough edges.'
 primaryCTA:
   label: Work with me
   url: /work-together/
