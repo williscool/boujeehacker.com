@@ -63,23 +63,28 @@ body {
 
 a {
   color: var(--color-link);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--color-border);
+  text-decoration: none;
   transition: color var(--transition-duration) ease,
-    text-decoration-color var(--transition-duration) ease;
-}
-
-a:hover {
-  color: var(--color-link-hover);
-  text-decoration-color: var(--color-link-hover);
+    text-decoration-color var(--transition-duration) ease,
+    background-color var(--transition-duration) ease;
 }
 
 a:focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+.prose-root a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-border);
+}
+
+.prose-root a:hover {
+  color: var(--color-link-hover);
+  text-decoration-color: var(--color-link-hover);
 }
 
 h1,

@@ -16,7 +16,7 @@ export default function Navbar({ data }: NavbarProps) {
             href="/about"
             className="font-display text-lg text-text no-underline hover:text-link-hover"
           >
-            William Harris
+            boujeehacker
           </Link>
           {data.menuItems.length > 0 && (
             <ul className="flex items-center gap-5 list-none p-0 m-0 text-sm">

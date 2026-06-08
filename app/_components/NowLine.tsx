@@ -7,7 +7,7 @@ export default function NowLine({ markdown }: { markdown: string }) {
       <span className="text-xs uppercase tracking-wide text-text-muted font-medium">
         Now
       </span>
-      <div className="text-text [&_p]:m-0">
+      <div className="text-text [&_p]:m-0 [&_a]:underline [&_a]:decoration-1 [&_a]:underline-offset-[3px] [&_a]:decoration-border hover:[&_a:hover]:text-link-hover hover:[&_a:hover]:decoration-link-hover">
         <ReactMarkdown components={{ a: MarkdownLinkInBlank }}>
           {markdown}
         </ReactMarkdown>
