@@ -33,7 +33,8 @@ Rebuild boujeehacker.com around two ideas: (1) a deliberate, clean **design syst
 - **Re-theming `/admin`** — Sveltia's editor UI is not part of the design system.
 - **Spotlighted writing feed on homepage** — explicitly deferred (see Future Enhancements). No RSS pull, no dated list.
 - **Light/dark theme switcher** — out for v1. The `@theme` token setup leaves the door open cheaply (see Future Enhancements).
-- **`/pastMeetups`, `/contact`, meetup blocks** — rebuilt against the new design system in Phase 4 but not redesigned or restructured. Same content, same routes, new tokens.
+- **`/contact`** — rebuilt against the new design system in Phase 4 but not redesigned or restructured. Same content, same route, new tokens.
+- **Preserving the existing palette** — the current `$sambucus` navy + `$golden-apricot` gold + `$greenway` came with the starter template; treat as throwaway. A new palette is picked in Phase 1.
 - **Animated/scroll-driven motion** — minimal hover transitions only. No GSAP, no scroll libraries.
 - **New copy for `/about` and `/work-together` beyond what the IA requires** — restructure and reframe per the plan; full content rewrites are a separate pass the user owns.
 
@@ -42,7 +43,9 @@ Rebuild boujeehacker.com around two ideas: (1) a deliberate, clean **design syst
 | Decision | Choice | Rationale |
 |----------|--------|-----------|
 | Styling system | **Rip-and-replace SCSS with Tailwind v4** | Cleanest end state; aligns with the design-system reset the plan already requires; avoids carrying two systems |
-| Token strategy | **Tailwind v4 `@theme` CSS-first tokens** porting `variables.scss` palette/spacing | First-class design tokens via CSS vars; sets up future light/dark switcher cheaply; no JS config drift |
+| Token strategy | **Tailwind v4 `@theme` CSS-first tokens**; spacing/sizing port from `variables.scss`, **palette is new** (designed in Phase 1) | First-class design tokens via CSS vars; sets up future light/dark switcher cheaply; no JS config drift. Current palette came with the starter template — no equity to preserve. |
+| Palette | **Pick during Phase 1**, no constraint locked now | The design decision is best made staring at type + layout, not in advance. Avoids over-specifying in the plan. |
+| Past-meetups subsystem | **Delete entirely** in a dedicated cleanup phase | `/pastMeetups`, `MeetupBlock`, `src/content/{meetups,pastMeetups}/`, related SCSS, related CMS collections, and `meetup`-shaped types are all starter-template cruft never linked anywhere. Removing them shrinks the surface every later phase has to think about. |
 | CMS schema | **Restructure to match new IA** (identityLine, nowLine, selectedWork[], primaryCTA) | New homepage has different shape than old; editing through `/admin` only stays useful if fields match the UI |
 | Homepage CTA | **One primary "Work with me" → `/work-together`** | Today four equal-weight CTAs compete; customer-first hierarchy is the whole point of Phase 3 |
 | `/about` content | **Migrate existing credibility material from old homepage** | Don't lose the LinkedIn/OpenSea/BCGX/cnf-testsuite arc; it just belongs on `/about`, not the doorway |
@@ -68,7 +71,7 @@ app/
     about/page.tsx
     work-together/page.tsx
     contact/page.tsx
-    pastMeetups/...
+    pastMeetups/page.tsx       # cruft from starter template — deleted in Phase 0
     not-found.tsx
 ```
 
@@ -130,21 +133,42 @@ Sveltia admin config (`config.yml` for the `home` collection) updates to match. 
 
 ### Milestone A — Foundation
 
-#### Phase 0: Install Tailwind v4, set up tokens, delete SCSS
+#### Phase 0: Delete past-meetups cruft
 
-**0a.** Install `tailwindcss@^4` and its Next.js/PostCSS plumbing (`@tailwindcss/postcss`). Add `postcss.config.mjs`. Remove `sass` from `package.json`.
+Carve out the dead subsystem before doing anything else so later phases stop tripping over it. Confirmed dead by grep — nothing in the new IA references any of it.
 
-**0b.** Replace `app/globals.scss` with `app/globals.css` containing `@import "tailwindcss";` and an `@theme` block that ports `variables.scss` tokens to CSS custom properties — palette (`--color-highlight`, `--color-background-dark`, etc.), spacing scale, container width, transition duration. Pick fonts here (display + text via `next/font` in `app/layout.tsx`); register as `--font-display`, `--font-sans`.
+- Delete `app/(site)/pastMeetups/` (route + page).
+- Delete `app/_components/MeetupBlock.tsx`.
+- Delete `src/content/meetups/` (5 files) and `src/content/pastMeetups/index.md`.
+- Delete `src/styles/meetup.scss` and `src/styles/past-meetups-page.scss` (these die again in Phase 1 with everything else, but removing them now keeps `globals.scss` honest while we still have it).
+- Remove the `meetups` and `pastMeetups` collections from `public/admin/config.yml` (the Sveltia admin config, location now confirmed).
+- Remove meetup-related types from `lib/content-types.ts` and reader functions from `lib/content.ts`.
+- Remove any meetup imports/references from `app/(site)/page.tsx` and `app/globals.scss`.
+- Grep verifies clean: `grep -rli "meetup" app/ src/ lib/ public/` returns nothing.
 
-**0c.** Delete all of `src/styles/*.scss` and the imports in `app/globals.scss`. Confirm the build fails *only* on missing classes from the now-deleted styles (this proves nothing else depends on the SCSS files).
+**Verification:** `pnpm typecheck` and `pnpm build` stay green. No new visual changes — the site looks identical, it just has less code.
 
-**0d.** Add Tailwind class to `app/layout.tsx` body for base text/bg color from the new tokens, so unstyled pages aren't blinding while we rebuild.
+#### Phase 1: Install Tailwind v4, set up tokens, delete SCSS
+
+**1a.** Install `tailwindcss@^4` and its Next.js/PostCSS plumbing (`@tailwindcss/postcss`). Add `postcss.config.mjs`. Remove `sass` from `package.json`.
+
+**1b.** Replace `app/globals.scss` with `app/globals.css` containing `@import "tailwindcss";` and an `@theme` block. **Port** the structural tokens from `variables.scss` (spacing scale, container width, transition duration). **Do not port** the palette — leave `--color-*` slots stubbed with neutral placeholders (e.g. plain black/white/gray) so the build works; the real palette is designed in Phase 2 alongside the type pairing. Pick fonts here (display + text via `next/font` in `app/layout.tsx`); register as `--font-display`, `--font-sans`.
+
+**1c.** Delete all of `src/styles/*.scss` and the imports in `app/globals.scss`. Confirm the build fails *only* on missing classes from the now-deleted styles (this proves nothing else depends on the SCSS files).
+
+**1d.** Add Tailwind class to `app/layout.tsx` body for base text/bg color from the placeholder tokens, so unstyled pages aren't blinding while we rebuild.
 
 **Verification:** `pnpm build` succeeds with `output: "export"` after we stub broken pages with `<div>placeholder</div>`. Tokens visible as CSS vars in DevTools.
 
-#### Phase 1: Design system primitives
+#### Phase 2: Design system — palette, type, and primitives
 
-Build the reusable pieces under `app/_components/`. Each is mobile-first, uses tokens (no hex literals in JSX), and gets visually checked at 375px first, then desktop.
+This is where the design actually happens. Treat in three substeps so the visual decisions are explicit, not buried inside component work.
+
+**2a — Palette.** Design a new restrained palette with one accent. The current navy/gold/green was inherited from the starter template and carries no brand equity worth preserving. Goal: considered minimalism — clean beats clever. Define as CSS custom properties in the `@theme` block in `globals.css` (overwriting the Phase 1 placeholders): background, surface, body text, muted text, link, accent, focus. Keep the palette small enough to fit in your head; resist adding "just one more" shade.
+
+**2b — Type.** Confirm/adjust the font pairing started in Phase 1 (display + text). Define the full type scale as `--text-*` tokens. The headline treatment does a lot of the "this person has taste" work — invest here.
+
+**2c — Primitives.** Build the reusable pieces under `app/_components/`. Each is mobile-first, uses tokens (no hex literals in JSX), and gets visually checked at 375px first, then desktop.
 
 - **`Container`** — max-width wrapper with consistent horizontal padding.
 - **`Prose`** — typography container with ~65ch measure for markdown content (`/about`, `/work-together`).
@@ -166,25 +190,25 @@ Design system exists. Tokens are real CSS vars. SCSS is gone. Build is green wit
 
 ### Milestone B — Content restructure
 
-#### Phase 2: CMS schema + content migration
+#### Phase 3: CMS schema + content migration
 
-**2a.** Update Sveltia admin config (locate the YAML config — likely `public/admin/config.yml`) for the `home` collection to match the new schema in Design Decisions above. Keep `about`, `work-together`, `navbar`, `footer` collections intact for now (they'll be touched in 2c).
+**3a.** Update Sveltia admin config (`public/admin/config.yml`, confirmed in Phase 0) for the `home` collection to match the new schema in Design Decisions above. Keep `about`, `work-together`, `navbar`, `footer` collections intact for now (they'll be touched in 3c–3e).
 
-**2b.** Update `lib/content-types.ts` and `lib/content.ts` (`getHomePage`) to read the new fields. Migrate `src/content/home/index.md` frontmatter — port the strongest content from the old homepage prose into `selectedWork[]` entries (cnf-testsuite, BCGX pipeline, OpenSea social integrations are the leading candidates), write the new `identityLine` and `nowLine`.
+**3b.** Update `lib/content-types.ts` and `lib/content.ts` (`getHomePage`) to read the new fields. Migrate `src/content/home/index.md` frontmatter — port the strongest content from the old homepage prose into `selectedWork[]` entries (cnf-testsuite, BCGX pipeline, OpenSea social integrations are the leading candidates), write the new `identityLine` and `nowLine`.
 
-**2c.** Migrate the rest of the old homepage credibility material into `src/content/about/index.md` — full career arc (LinkedIn / OpenSea / BCGX), BCGX "hire a top FAANG team" framing, cnf-testsuite/CNCF + Crystal talk, self-taught/Georgia Tech story, mentoring, multi-hat narrative. Repeats a one-line identity at the top, Larson-style.
+**3c.** Migrate the rest of the old homepage credibility material into `src/content/about/index.md` — full career arc (LinkedIn / OpenSea / BCGX), BCGX "hire a top FAANG team" framing, cnf-testsuite/CNCF + Crystal talk, self-taught/Georgia Tech story, mentoring, multi-hat narrative. Repeats a one-line identity at the top, Larson-style.
 
-**2d.** Update `src/content/work-together/index.md` to lead benefit-first with the ICP line ("I rescue profitable AI-built apps from the last-20% death spiral") rather than process-first. This is the one page where founder-voice (benefit-first) is correct.
+**3d.** Update `src/content/work-together/index.md` to lead benefit-first with the ICP line ("I rescue profitable AI-built apps from the last-20% death spiral") rather than process-first. This is the one page where founder-voice (benefit-first) is correct.
 
-**2e.** Update `src/content/navbar/index.md` to include the `articles` link → Substack.
+**3e.** Update `src/content/navbar/index.md` to include the `articles` link → Substack.
 
 **Verification:** `/admin` loads, the home collection editor shows the new fields, content saves and re-reads through `lib/content.ts` correctly.
 
 ### Milestone C — New IA pages
 
-#### Phase 3: Doorway homepage
+#### Phase 4: Doorway homepage
 
-Rewrite `app/(site)/page.tsx` to render the new schema using Phase 1 primitives:
+Rewrite `app/(site)/page.tsx` to render the new schema using Phase 2 primitives:
 
 1. `<IdentityLine>` — single line, proof nouns linked inline, no bold.
 2. Selected Work — grid/list of `<WorkCard>` (3–5), outcome-first.
@@ -196,21 +220,21 @@ No `headerImage`. No `homeMainContent` blob. No `firstCTA`/`secondCTA`. The page
 
 **Verification:** the 5-second test — an unfamiliar viewer can state (a) who you are and (b) what to do next, and the primary CTA they notice is the consulting one.
 
-#### Phase 4: `/about`, `/work-together`, and the long tail
+#### Phase 5: `/about`, `/work-together`, and the long tail
 
-**4a.** Rewrite `app/(site)/about/page.tsx` to render the migrated `/about` content through `<Prose>`, with `<IdentityLine>` at top.
+**5a.** Rewrite `app/(site)/about/page.tsx` to render the migrated `/about` content through `<Prose>`, with `<IdentityLine>` at top.
 
-**4b.** Rewrite `app/(site)/work-together/page.tsx` benefit-first per Phase 2d.
+**5b.** Rewrite `app/(site)/work-together/page.tsx` benefit-first per Phase 3d.
 
-**4c.** Rebuild `app/(site)/contact/page.tsx`, `app/(site)/pastMeetups/...`, `not-found.tsx`, and `MeetupBlock`/`RedirectShell`/`Content` components against Tailwind tokens. Same content and IA — just new styling. This is the "delete the SCSS and stop the bleeding" cleanup; no design changes beyond consistency.
+**5c.** Rebuild `app/(site)/contact/page.tsx`, `not-found.tsx`, and `RedirectShell`/`Content` components against Tailwind tokens. Same content and IA — just new styling. (`pastMeetups` and `MeetupBlock` were already deleted in Phase 0.)
 
-**4d.** De-bold pass across every page: remove ~90% of bold; inline links and type scale carry emphasis.
+**5d.** De-bold pass across every page: remove ~90% of bold; inline links and type scale carry emphasis.
 
 #### Milestone C Checkpoint
 
 All routes render against Tailwind. Old SCSS is gone for good. Homepage is a doorway. **Run the testing plan in full before merging.**
 
-### Phase 5: Polish + ship
+### Phase 6: Polish + ship
 
 - Mobile QA at 375px and 414px for every route. Mobile is the weak point we're explicitly fixing.
 - Link integrity: LinkedIn, GitHub, OpenSea, CNCF, articles→Substack, email, `/about`, `/work-together`.
@@ -246,7 +270,6 @@ All routes render against Tailwind. Old SCSS is gone for good. Homepage is a doo
 | `app/(site)/about/page.tsx` | Renders migrated credibility content via `<Prose>` |
 | `app/(site)/work-together/page.tsx` | Benefit-first reframe |
 | `app/(site)/contact/page.tsx` | Re-styled, same content |
-| `app/(site)/pastMeetups/**` | Re-styled, same content |
 | `app/(site)/not-found.tsx` | Re-styled, same content |
 | `app/(site)/layout.tsx` | Minor — only if Navbar/Footer prop shapes change. Analytics scripts unchanged. |
 | `app/_components/Navbar.tsx` | Refactor to new design; add `articles` link |
@@ -257,7 +280,20 @@ All routes render against Tailwind. Old SCSS is gone for good. Homepage is a doo
 | `src/content/about/index.md` | Adds migrated career arc content |
 | `src/content/work-together/index.md` | Benefit-first rewrite per Phase 2d |
 | `src/content/navbar/index.md` | Add `articles` link |
-| Sveltia admin config (likely `public/admin/config.yml`) | Schema updates for `home` collection |
+| `public/admin/config.yml` | Schema update for `home` collection; remove `meetups` and `pastMeetups` collections |
+
+### Deleted Files (Phase 0 cruft removal)
+
+| File / Directory | Why |
+|------------------|-----|
+| `app/(site)/pastMeetups/page.tsx` | Starter-template route, never linked |
+| `app/_components/MeetupBlock.tsx` | Only used by deleted meetup pages |
+| `src/content/meetups/*.md` (5 files) | Stale 2018 meetup content from template |
+| `src/content/pastMeetups/index.md` | Stale page content from template |
+| `src/styles/meetup.scss` | Style for deleted component |
+| `src/styles/past-meetups-page.scss` | Style for deleted page |
+| Meetup-related types in `lib/content-types.ts` | No remaining consumers |
+| Meetup-related readers in `lib/content.ts` | No remaining consumers |
 
 ## Testing Plan
 
