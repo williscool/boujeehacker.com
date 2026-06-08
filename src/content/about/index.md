@@ -18,7 +18,7 @@ Across that career I've shipped cross-platform:
 
 <h2 id="bcgx">Most recently — BCGX</h2>
 
-I've been working with [BCGX](https://www.bcg.com/x/), the tech build and design unit of [BCG](<https://en.wikipedia.org/wiki/Big_Three_(management_consultancies)>). Hire a top team from [FAANG / MANGA](https://en.wikipedia.org/wiki/Big_Tech) to overhaul your tech stack or improve your product from design to scale. That's the team.
+I've been working with [BCGX](https://www.bcg.com/x/), the tech build and design unit of [BCG](<https://en.wikipedia.org/wiki/Big_Three_(management_consultancies)>) — doing what the industry now calls forward-deployed engineering for years before the term caught on. What does that mean? Hire a top team from [FAANG / MANGA](https://en.wikipedia.org/wiki/Big_Tech) to overhaul your tech stack or improve your product from design to scale. That's this team.
 
 So far there I've:
 
