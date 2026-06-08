@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import Container from "../_components/Container";
+import IdentityLine from "../_components/IdentityLine";
+import WorkCard from "../_components/WorkCard";
+import NowLine from "../_components/NowLine";
+import CTAButton from "../_components/CTAButton";
+import SocialLinkRow from "../_components/SocialLinkRow";
 import { getHomePage } from "../../lib/content";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -16,16 +21,38 @@ export default async function HomePage() {
 
   return (
     <Container>
-      <div className="py-12 space-y-6">
-        <p className="text-xs uppercase tracking-wide text-text-muted">
-          Phase 3 stub — full doorway lands in Phase 4
-        </p>
-        <p>identityLine: {home.identityLine}</p>
-        <p>nowLine: {home.nowLine}</p>
-        <p>selectedWork: {home.selectedWork.length} items</p>
-        <p>
-          primaryCTA: {home.primaryCTA.label} → {home.primaryCTA.url}
-        </p>
+      <div className="py-16 sm:py-24 space-y-14">
+        <IdentityLine markdown={home.identityLine} />
+
+        <section aria-labelledby="selected-work-heading">
+          <h2
+            id="selected-work-heading"
+            className="text-xs uppercase tracking-wide text-text-muted font-medium m-0 mb-2"
+          >
+            Selected work
+          </h2>
+          <ul className="list-none p-0 m-0">
+            {home.selectedWork.map((item) => (
+              <li key={item.url}>
+                <WorkCard item={item} />
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <NowLine markdown={home.nowLine} />
+
+        <div className="flex flex-col gap-5 items-start">
+          <CTAButton href={home.primaryCTA.url}>
+            {home.primaryCTA.label}
+          </CTAButton>
+          <SocialLinkRow
+            links={home.socialLinks.map((l) => ({
+              label: l.label,
+              href: l.url,
+            }))}
+          />
+        </div>
       </div>
     </Container>
   );
