@@ -6,7 +6,7 @@ headerImage:
 title: |-
   # Hi, I'm William Harris
 
-  I do software things and such.  More below [⤵️](#home-main)
+  I help teams ship and scale software that real users depend from launch to 100M+ user systems at LinkedIn.  More below [⤵️](#home-main)
 homeMainContent: |-
   ## About Me
 
