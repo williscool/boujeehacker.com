@@ -17,14 +17,7 @@ collections:
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page" }
           - { label: "Title", name: "title", widget: "string" }
-          - {
-              label: "Identity Line",
-              name: "identityLine",
-              widget: "markdown",
-              hint: "One-line identity at the top of the page, Larson-style. Inline links allowed.",
-              buttons: [italic, link],
-            }
-          - { label: "Body", name: "body", widget: "markdown", hint: "The credibility arc — career, projects, story." }
+          - { label: "Body", name: "body", widget: "markdown", hint: "The credibility arc — career, projects, story. The identity line at the top of the page is sourced from the Home collection." }
           - {
               label: "SEO & Meta",
               name: "seo",
@@ -126,13 +119,20 @@ collections:
               buttons: [italic, link],
             }
           - {
+              label: "Booking URL",
+              name: "bookingUrl",
+              widget: "string",
+              required: false,
+              hint: "Calendly or similar — used by the 'Book a time' button after the body.",
+            }
+          - {
               label: "Deck URL",
               name: "deckUrl",
               widget: "string",
               required: false,
               hint: "Optional link to the longer pitch deck (Google Slides, etc).",
             }
-          - { label: "Body", name: "body", widget: "markdown", hint: "Benefit-first explanation. What you do, who it's for, what they get." }
+          - { label: "Body", name: "body", widget: "markdown", hint: "Benefit-first explanation. What you do, who it's for, what they get. Do NOT include the Book-a-time link or the pitch-deck link here — they render automatically after the body." }
           - {
               label: "SEO & Meta",
               name: "seo",

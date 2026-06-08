@@ -1,9 +1,9 @@
 ---
 templateKey: navbar
 menuItems:
-  - label: home
+  - label: about
     linkType: internal
-    linkURL: /
+    linkURL: /about/
   - label: articles
     linkType: external
     linkURL: https://boujeehacker.substack.com

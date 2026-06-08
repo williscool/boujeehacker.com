@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Container from "../../_components/Container";
 import IdentityLine from "../../_components/IdentityLine";
 import Prose from "../../_components/Prose";
+import CTAButton from "../../_components/CTAButton";
 import { getWorkTogetherPage } from "../../../lib/content";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -12,16 +13,71 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+function DeckFootnote({ url }: { url: string }) {
+  return (
+    <p className="text-sm text-text-muted m-0">
+      Want more details?{" "}
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener"
+        className="underline decoration-border underline-offset-[3px] hover:text-link-hover hover:decoration-link-hover"
+      >
+        Here's the pitch deck
+      </a>
+      .
+    </p>
+  );
+}
+
 export default async function WorkTogetherPage() {
   const { frontmatter, html } = await getWorkTogetherPage();
+  const { bookingUrl, deckUrl, icpLine } = frontmatter;
 
   return (
-    <Container>
+    <Container width="wide">
       <div className="py-12 space-y-10">
-        <IdentityLine markdown={frontmatter.icpLine} />
-        <Prose>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Prose>
+        <IdentityLine markdown={icpLine} />
+
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-10 lg:gap-16">
+          {/* Left column: mobile CTA + body + mobile footer */}
+          <div className="space-y-8 min-w-0">
+            {bookingUrl && (
+              <div className="lg:hidden">
+                <CTAButton href={bookingUrl} external>
+                  Book a time
+                </CTAButton>
+              </div>
+            )}
+
+            <Prose html={html} />
+
+            <div className="lg:hidden space-y-6">
+              {bookingUrl && (
+                <CTAButton href={bookingUrl} external>
+                  Book a time
+                </CTAButton>
+              )}
+              {deckUrl && (
+                <div className="pt-6 border-t border-border max-w-[var(--measure)]">
+                  <DeckFootnote url={deckUrl} />
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right column: sticky CTA + deck (desktop only) */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-8 space-y-5">
+              {bookingUrl && (
+                <CTAButton href={bookingUrl} external>
+                  Book a time
+                </CTAButton>
+              )}
+              {deckUrl && <DeckFootnote url={deckUrl} />}
+            </div>
+          </aside>
+        </div>
       </div>
     </Container>
   );

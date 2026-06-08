@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Container from "../../_components/Container";
 import IdentityLine from "../../_components/IdentityLine";
 import Prose from "../../_components/Prose";
-import { getAboutPage } from "../../../lib/content";
+import { getAboutPage, getHomePage } from "../../../lib/content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { frontmatter } = await getAboutPage();
@@ -13,15 +13,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AboutPage() {
-  const { frontmatter, html } = await getAboutPage();
+  const [{ html }, { frontmatter: home }] = await Promise.all([
+    getAboutPage(),
+    getHomePage(),
+  ]);
 
   return (
     <Container>
       <div className="py-16 sm:py-24 space-y-10">
-        <IdentityLine markdown={frontmatter.identityLine} />
-        <Prose>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Prose>
+        <IdentityLine markdown={home.identityLine} />
+        <Prose html={html} />
       </div>
     </Container>
   );

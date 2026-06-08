@@ -42,7 +42,6 @@ export interface HomeFrontmatter {
 export interface AboutFrontmatter {
   templateKey: "about-page";
   title: string;
-  identityLine: string;
   seo: SeoFields;
 }
 
@@ -87,6 +86,7 @@ export interface WorkTogetherFrontmatter {
   templateKey: "work-together";
   title: string;
   icpLine: string;
+  bookingUrl?: string;
   deckUrl?: string;
   seo: SeoFields;
 }
