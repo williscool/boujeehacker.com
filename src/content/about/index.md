@@ -36,7 +36,7 @@ Founding core maintainer of [cncf/cnf-testsuite](https://github.com/lfn-cnti/tes
 
 ## More than engineering
 
-I taught myself to code in high school, earned a B.S. in Computer Science from Georgia Tech, and started the consulting business I still run today while in college, so I've worn most of the hats around shipping software as a business, not just building it. I've been a key engineer in designing and communicating the value of solutions companies pay millions of dollars for. I've also marketed (campaigns for 300+ person social events in San Francisco), written (blog posts with 10,000+ views), and advised startups on product and engineering strategy.
+I taught myself to code in high school, earned a B.S. in Computer Science from Georgia Tech, and started the consulting business I still run today while in college, so I've worn most of the hats around shipping software as a business, not just building it. I've sold as key sales engineer in designing and communicating the value of solutions companies pay millions of dollars for. I've also marketed (campaigns for 300+ person social events in San Francisco), written (blog posts with 10,000+ views), and advised startups on product and engineering strategy.
 
 ## Side projects and mentoring
 
