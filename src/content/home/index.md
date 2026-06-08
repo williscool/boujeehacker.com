@@ -29,7 +29,7 @@ homeMainContent: |-
 
   So far I've worked on everything from 
 
-  * **Lead Engineer** on more **biz dev proposals than totally over 6 million dollars** in for clients in Energy and Med Tech
+  * **Lead Engineer** on **biz dev proposals for projects sold for over 6 million dollars** to clients in Energy and Med Tech
   * Anchor backend engineer **coordinating across 6 teams and 30+ engineers** to build a snowflake pipeline connection that processes over **10 Million datapoints per day** and **enables customers to save 10 to 20 million dollars per year in transportation logistics**
   * to **building a weekly sentiment analysis pipeline for a graph database of the entire energy economy**. (Which I later presented to an executive department of the federal government.)
   * and **led an internal BCGX team to build one of the companies first multi agent Generative AI Applications** to power content generation.
