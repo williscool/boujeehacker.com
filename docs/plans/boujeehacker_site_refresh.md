@@ -106,7 +106,7 @@ The current homepage has four equal-weight CTAs (LinkedIn, GitHub, Twitter, some
 New homepage frontmatter:
 
 ```yaml
-identityLine: "I'm William Harris — I build software real users depend on, from 100M-user systems at [LinkedIn](...) to early [OpenSea](...)"
+identityLine: "I'm William Harris — I build software real users depend on, from 300M+-user systems at [LinkedIn](...) to early [OpenSea](...)"
 nowLine: "Building RecoverMoney on Whop; advising founders scaling vibe-coded apps."
 selectedWork:
   - title: "cnf-testsuite"

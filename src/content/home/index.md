@@ -4,7 +4,7 @@ avatar:
   image: /img/fb.jpg
   imageAlt: William Harris
 identityLine: |-
-  I'm William Harris — I build software real users depend on, from 100M-user systems at [LinkedIn](https://www.linkedin.com/in/31iqml/) to early [OpenSea](https://opensea.io/).
+  I'm William Harris — I build software real users depend on, from 300M+-user systems at [LinkedIn](https://www.linkedin.com/in/31iqml/) to early [OpenSea](https://opensea.io/).
 selectedWork:
   - title: BCGX Snowflake pipeline
     outcome: 10M datapoints/day; $10–20M/yr customer savings in transportation logistics
@@ -30,6 +30,6 @@ socialLinks:
 seo:
   browserTitle: William Harris — software engineer and tech advisor
   title: William Harris — software engineer and tech advisor
-  description: I build software real users depend on, from 100M-user systems at LinkedIn to early OpenSea. Now helping founders ship and scale vibe-coded apps.
+  description: I build software real users depend on, from 300M+-user systems at LinkedIn to early OpenSea. Now helping founders ship and scale vibe-coded apps.
   keywords: software engineering, tech advisor, vibe coding, AI apps, scaling, full-stack, startups, consulting
 ---
