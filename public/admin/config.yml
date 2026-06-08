@@ -119,13 +119,20 @@ collections:
               buttons: [italic, link],
             }
           - {
+              label: "Booking URL",
+              name: "bookingUrl",
+              widget: "string",
+              required: false,
+              hint: "Calendly or similar — used by the 'Book a time' button after the body.",
+            }
+          - {
               label: "Deck URL",
               name: "deckUrl",
               widget: "string",
               required: false,
               hint: "Optional link to the longer pitch deck (Google Slides, etc).",
             }
-          - { label: "Body", name: "body", widget: "markdown", hint: "Benefit-first explanation. What you do, who it's for, what they get." }
+          - { label: "Body", name: "body", widget: "markdown", hint: "Benefit-first explanation. What you do, who it's for, what they get. Do NOT include the Book-a-time link or the pitch-deck link here — they render automatically after the body." }
           - {
               label: "SEO & Meta",
               name: "seo",

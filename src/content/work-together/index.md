@@ -3,6 +3,7 @@ templateKey: work-together
 title: Work with me
 icpLine: |-
   I get fast-built software past the scaling wall — whether you vibe-coded your way to traction or just grew faster than your engineering could keep up.
+bookingUrl: https://calendly.com/wharris-cal
 deckUrl: https://docs.google.com/presentation/d/17srZbSNvvgtIGhutIbKCqmfZl6QMCmcLXl2viDqNdLc/edit
 seo:
   browserTitle: Work with me — William Harris
@@ -28,6 +29,3 @@ Either way, you need senior hands now — not a job req.
 
 ## How we start
 A short call to figure out whether I can actually help. If yes, a scoped engagement; if no, I'll point you at someone who can.
-[Book a time →](https://calendly.com/wharris-cal)
----
-Want the longer version? [Here's the pitch deck](https://docs.google.com/presentation/d/17srZbSNvvgtIGhutIbKCqmfZl6QMCmcLXl2viDqNdLc/edit).

@@ -22,9 +22,7 @@ export default async function AboutPage() {
     <Container>
       <div className="py-16 sm:py-24 space-y-10">
         <IdentityLine markdown={home.identityLine} />
-        <Prose>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Prose>
+        <Prose html={html} />
       </div>
     </Container>
   );

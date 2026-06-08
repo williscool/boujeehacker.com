@@ -86,6 +86,7 @@ export interface WorkTogetherFrontmatter {
   templateKey: "work-together";
   title: string;
   icpLine: string;
+  bookingUrl?: string;
   deckUrl?: string;
   seo: SeoFields;
 }
