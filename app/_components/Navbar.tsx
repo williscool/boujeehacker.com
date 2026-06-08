@@ -13,7 +13,7 @@ export default function Navbar({ data }: NavbarProps) {
       <Container width="wide">
         <div className="flex h-[var(--navbar-height)] items-center justify-between gap-3 sm:gap-6">
           <Link
-            href="/about"
+            href="/"
             className="font-display text-base sm:text-lg text-text no-underline hover:text-link-hover"
           >
             boujeehacker
