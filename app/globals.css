@@ -63,7 +63,6 @@ body {
 
 a {
   color: var(--color-link);
-  text-decoration: none;
   transition: color var(--transition-duration) ease,
     text-decoration-color var(--transition-duration) ease,
     background-color var(--transition-duration) ease;
