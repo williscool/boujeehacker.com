@@ -16,7 +16,7 @@ selectedWork:
     outcome: CNCF project, 175+ stars, 2021 Crystal conference talk
     url: https://github.com/lfn-cnti/testsuite
 nowLine: |-
-  Building RecoverMoney on Whop; advising founders scaling vibe-coded apps.
+  Building [RecoverMoney on Whop](https://whop.com/recovermoney); advising founders scaling (vibe-coded) apps.
 primaryCTA:
   label: Work with me
   url: /work-together/
