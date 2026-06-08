@@ -2,34 +2,32 @@
 templateKey: work-together
 title: Work with me
 icpLine: |-
-  I rescue profitable AI-built apps from the last-20% death spiral — and scale them past it.
+  I get fast-built software past the scaling wall — whether you vibe-coded your way to traction or just grew faster than your engineering could keep up.
 deckUrl: https://docs.google.com/presentation/d/17srZbSNvvgtIGhutIbKCqmfZl6QMCmcLXl2viDqNdLc/edit
 seo:
   browserTitle: Work with me — William Harris
   title: Work with me — William Harris
-  description: I help founders ship and scale vibe-coded apps past the last-20% wall — turning AI-built prototypes into software real users depend on.
+  description: I help founders and small teams get fast-built software past the scaling wall — whether it's an AI-built app or a startup whose traction outran its team — turning fragile prototypes into software real users depend on.
 ---
-
 ## Who this is for
+You've got something real — paying users, real load, real expectations — but the engineering can't keep up with the traction. That usually looks like one of two things:
 
-You shipped something with AI tooling and it's getting traction — paying users, real load, real expectations. But the last 20% (the boring 20%: reliability, scale, integration sharp edges, the parts the model can't one-shot) is eating your weeks and your runway. The team you'd need to fix it would take a quarter to hire, and you don't have a quarter.
+**You vibe-coded your way to traction.** AI tooling got you to a working product and real users, but the last 20% — reliability, scale, the integration sharp edges the model can't one-shot — is eating your weeks and your runway.
+
+**Your team shipped fast to find PMF, and now it's buckling.** The architecture that was perfect for *finding* product-market fit is cracking under the load that came *with* it — and the senior hire you'd need to fix it is a quarter away. You don't have a quarter.
+
+Either way, you need senior hands now — not a job req.
 
 ## What you get
-
 * A second pair of senior eyes on the architecture, with concrete fixes — not consultant theater.
 * Hands-on engineering on the parts most likely to break next: data, scaling, integrations, the unsexy plumbing.
-* Mentorship for your existing builders so they can keep going after I leave.
+* Mentorship for whoever's building it — you or your team — so it keeps holding up after I leave.
 
 ## Why me
-
 14 years shipping production software at scale — from scrappy startups like early OpenSea to 300M+-user systems at LinkedIn to BCGX. I've seen what breaks at every order of magnitude and know what's worth fixing now vs. later. [More background on /about](/about/).
 
 ## How we start
-
 A short call to figure out whether I can actually help. If yes, a scoped engagement; if no, I'll point you at someone who can.
-
 [Book a time →](https://calendly.com/wharris-cal)
-
 ---
-
 Want the longer version? [Here's the pitch deck](https://docs.google.com/presentation/d/17srZbSNvvgtIGhutIbKCqmfZl6QMCmcLXl2viDqNdLc/edit).
