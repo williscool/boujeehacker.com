@@ -24,7 +24,7 @@ At [BCGX](https://www.bcg.com/x/), the tech build-and-design unit of [BCG](<http
 * Been lead engineer on biz-dev proposals for projects sold for $6M+ to clients in energy and med-tech.
 * Anchored the backend across 6 teams and 30+ engineers on a Snowflake pipeline processing 10M+ datapoints/day, saving customers $10 to $20M/yr in transportation logistics.
 * Built a weekly sentiment-analysis pipeline against a graph database of the entire energy economy, later presented to an executive department of the federal government.
-* Led an internal team building one of BCGX's first multi-agent generative-AI applications.
+* Led an internal team to build one of BCGX's first multi-agent generative-AI applications applied to content generation.
 
 ## OpenSea
 
