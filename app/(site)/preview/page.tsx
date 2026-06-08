@@ -16,7 +16,7 @@ export default function PreviewPage() {
           </p>
           <div className="mt-3">
             <IdentityLine
-              markdown={`I'm William Harris — I build software real users depend on, from scrappy startups like early [OpenSea](https://opensea.io) to 300M+-user systems at [LinkedIn](https://linkedin.com/in/31iqml).`}
+              markdown={`I'm William Harris. I build software real users depend on, from scrappy startups like early [OpenSea](https://opensea.io) to 300M+-user systems at [LinkedIn](https://linkedin.com/in/31iqml).`}
             />
           </div>
         </section>
@@ -87,8 +87,8 @@ export default function PreviewPage() {
               <h2>A second-level heading</h2>
               <p>
                 A paragraph of body copy at the standard reading measure. This
-                column should feel composed, not sprawled — about 65 characters
-                per line. Inline <a href="#">links look like this</a> and{" "}
+                column should feel composed, not sprawled (about 65 characters
+                per line). Inline <a href="#">links look like this</a> and{" "}
                 <code>inline code</code> renders in a mono face.
               </p>
               <h3>A third-level heading</h3>
