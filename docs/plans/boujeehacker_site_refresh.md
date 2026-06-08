@@ -1,78 +1,316 @@
-# Refactor: boujeehacker.com — Considered Design System + Doorway Homepage + Credibility /about
+# Refactor: boujeehacker.com — Tailwind-based Design System + Doorway Homepage + Credibility /about
 
-**Tracking:** N/A (personal site, Next.js SSG, repo: github.com/williscool/boujeehacker.com)
-
-## Overview
-
-Rebuild boujeehacker.com around two ideas: (1) a deliberate, clean **design system** — because as a full-stack engineer the site itself is a work sample, not just a container — and (2) a Larson-style structural split into a lean **doorway homepage** and a fuller **`/about`**. The homepage's primary call-to-action targets the consulting customer (Vibe Code Rescue & Scale); `/about` serves as the bio for anyone who wants the full arc. Writing stays on Substack and remains accessible via the "articles" nav link, but is **not** spotlighted on the homepage for now (the blog isn't currently active — see Background). Optimize for *credibility + craft*: "is this person real, is the site cared-for, and can they obviously build."
+**Tracking:** N/A (personal site, Next.js 16 App Router SSG, repo: github.com/williscool/boujeehacker.com)
 
 ## Background
 
-The current site collapses doorway and résumé onto one bolded, monument-style page; the lede buries a strong positioning line that already exists in the ICP.
+The current site collapses doorway and résumé onto one bolded, monument-style homepage; the lede buries a strong positioning line that already exists in the ICP. Styling is hand-rolled SCSS partials (`src/styles/*.scss`) imported from `app/globals.scss`, with tokens in `src/styles/variables.scss`. That gives us a palette and spacing constants but no real component system — every page is a one-off layout against per-page SCSS (`home.scss`, `about-page.scss`, …) and the SCSS files have drifted from the markup.
 
-The key distinction from the sites we compared against (Larson et al.): those are intentionally sparse because their authors deliver backend systems and organizational leadership — the site just needs to surface writing and get out of the way. Will is full-stack and cares about presentation, so the site has a second job those don't: **be visible proof of design + frontend craft.** That's the Brian Lovin model, where the site is itself a portfolio piece. So "clean, well-thought-out presentation" is a deliverable here, not decoration — and it should read as *considered and restrained*, not busy.
+Stack snapshot worth pinning before we plan:
 
-On writing: the blog (Substack, linked as "articles" — the name covers both evergreen and timely pieces) hasn't been active recently, so a prominent dated feed would *hurt* the "is this alive" signal rather than help it. It stays a quiet nav item. Freshness is instead carried by a "Now" line and by the design refresh itself signaling a recently-tended site. A spotlighted homepage feed is deferred to Future Enhancements, to switch on once cadence returns.
+| Concern | Current state |
+|---------|---------------|
+| Framework | Next.js 16 App Router, `output: "export"` (full SSG), Turbopack |
+| Routing | `app/(site)/` route group with `page.tsx`, `about/`, `work-together/`, `contact/`, `pastMeetups/`, `not-found.tsx` |
+| Shared components | `app/_components/` — `Navbar`, `Footer`, `CustomLink`, `MarkdownLinkInBlank`, `Content`, `MeetupBlock`, `RedirectShell` |
+| Content | Sveltia CMS; markdown in `src/content/{home,about,work-together,navbar,footer,…}/index.md`, read via `lib/content.ts` |
+| Styling | SCSS partials in `src/styles/`, imported from `app/globals.scss`. Tokens: `variables.scss` (palette, spacing, navbar/footer heights) |
+| Analytics | Segment + PostHog + Rudderstack + Leadsy in `(site)/layout.tsx` — must stay working |
 
-Stack is Next.js SSG, so the design system lives in real components/tokens. The `frontend-design` skill should be consulted at build time for the design tokens and styling constraints.
+The key distinction from sites we compared against (Larson et al.): those are intentionally sparse because their authors deliver backend systems and org leadership — the site just needs to surface writing and get out of the way. Will is full-stack and cares about presentation, so the site has a second job those don't: **be visible proof of design + frontend craft.** That's the Brian Lovin model. So "clean, well-thought-out presentation" is a deliverable here, not decoration — *considered and restrained*, not busy.
 
-## Plan
+On writing: the Substack blog (linked as "articles") hasn't been active recently, so a prominent dated feed would *hurt* the "is this alive" signal. It stays a quiet nav item. Freshness comes from a "Now" line plus the refresh itself signaling a recently-tended site. A spotlighted homepage feed is deferred to Future Enhancements.
 
-### Phase 1: Design system foundation
+## Goal
 
-Establish the visual system first — everything else renders into it. Goal is *considered minimalism*: distinctive enough to signal craft, restrained enough to stay clean. Consult the `frontend-design` skill when implementing.
+Rebuild boujeehacker.com around two ideas: (1) a deliberate, clean **design system** built on Tailwind v4 with `@theme` tokens — because the site is a work sample, not just a container — and (2) a Larson-style structural split into a lean **doorway homepage** and a fuller **`/about`**. The homepage's single primary CTA targets the consulting customer (Vibe Code Rescue & Scale). The Sveltia CMS content shape is restructured to match the new IA so editing through `/admin` stays first-class. Optimize for *credibility + craft*: "is this person real, is the site cared-for, can they obviously build."
 
-- **Type system**: a deliberate pairing (e.g. a characterful display face for name/headings + a highly readable text face), with a defined type scale. A confident headline treatment does a lot of the "this person has taste" work.
-- **Color**: a restrained palette with one accent. There's existing brand equity in "boujeehacker" — pick an accent that carries it without going loud.
-- **Spacing & rhythm**: a spacing scale and a constrained reading measure (~60–75 chars) so prose and lists feel composed rather than full-width sprawl.
-- **Component primitives**: nav (including the "articles" link), footer, link style, the Selected Work card, and the primary CTA button. These are the reusable pieces Phases 2–3 assemble.
-- **Responsive / mobile-first**: build mobile-first; the current site renders poorly narrow, and mobile is where most first impressions land.
-- **Motion**: minimal and tasteful (subtle hover/scroll transitions at most). Explicitly avoid anything gimmicky.
+## Non-Goals
 
-Design choice — *considered vs. sparse*: lean considered, not sparse, because the site is craft evidence. But the bar is "restraint that reads as taste," not maximalism — clean beats clever.
+- **Migrating off Next.js App Router / SSG** — `output: "export"` stays; no SSR, no server actions, no DB. Netlify deploy continues unchanged.
+- **Replacing Sveltia CMS** — admin route, decap-style markdown collections, and the `lib/content.ts` reader all stay; only the collection schemas change.
+- **Touching analytics** — the Segment/PostHog/Rudderstack/Leadsy snippets in `(site)/layout.tsx` stay verbatim. Refactoring them is its own project.
+- **Re-theming `/admin`** — Sveltia's editor UI is not part of the design system.
+- **Spotlighted writing feed on homepage** — explicitly deferred (see Future Enhancements). No RSS pull, no dated list.
+- **Light/dark theme switcher** — out for v1. The `@theme` token setup leaves the door open cheaply (see Future Enhancements).
+- **`/pastMeetups`, `/contact`, meetup blocks** — rebuilt against the new design system in Phase 4 but not redesigned or restructured. Same content, same routes, new tokens.
+- **Animated/scroll-driven motion** — minimal hover transitions only. No GSAP, no scroll libraries.
+- **New copy for `/about` and `/work-together` beyond what the IA requires** — restructure and reframe per the plan; full content rewrites are a separate pass the user owns.
 
-### Phase 2: Split into doorway homepage + /about
+## Key Decisions Summary
 
-Bucket existing content into the new structure, rendered with the Phase 1 system.
+| Decision | Choice | Rationale |
+|----------|--------|-----------|
+| Styling system | **Rip-and-replace SCSS with Tailwind v4** | Cleanest end state; aligns with the design-system reset the plan already requires; avoids carrying two systems |
+| Token strategy | **Tailwind v4 `@theme` CSS-first tokens** porting `variables.scss` palette/spacing | First-class design tokens via CSS vars; sets up future light/dark switcher cheaply; no JS config drift |
+| CMS schema | **Restructure to match new IA** (identityLine, nowLine, selectedWork[], primaryCTA) | New homepage has different shape than old; editing through `/admin` only stays useful if fields match the UI |
+| Homepage CTA | **One primary "Work with me" → `/work-together`** | Today four equal-weight CTAs compete; customer-first hierarchy is the whole point of Phase 3 |
+| `/about` content | **Migrate existing credibility material from old homepage** | Don't lose the LinkedIn/OpenSea/BCGX/cnf-testsuite arc; it just belongs on `/about`, not the doorway |
+| Articles link | **Nav item only, no homepage spotlight** | Substack cadence is currently quiet; a feed would signal staleness |
+| Component primitives | **Real components in `app/_components/`**: `WorkCard`, `CTAButton`, `IdentityLine`, `NowLine`, plus refactored `Navbar`/`Footer` | New IA needs them; existing shared-component pattern already in place |
+| Rollout | **Phased on a single branch** (`feat/site_refresh`), not behind a flag | Personal site, SSG, no users mid-flow to protect |
 
-- **New `/about` page** holds the credibility material currently on the homepage: full career arc (LinkedIn / OpenSea / BCGX), the BCGX "hire a top FAANG team" framing, cnf-testsuite/CNCF + Crystal talk, the self-taught/Georgia Tech "about the biz" story, mentoring, and the multi-hat (sold/marketed/wrote) narrative. Repeats a one-line identity at the top, Larson-style.
-- **Homepage becomes a doorway**: (1) a single identity line owning the niche with proof nouns linked inline — e.g. "I'm William Harris — I build software real users depend on, from 100M-user systems at LinkedIn to early OpenSea" — no bold; (2) Selected Work; (3) a "Now / currently" line (below); (4) primary CTA (Phase 3). No spotlighted writing feed for now.
-- **Name links to `/about`**; **"articles" stays in the nav** pointing to Substack.
-- **"Now / currently" one-liner**: the primary freshness signal in the absence of a feed — e.g. "Building RecoverMoney on Whop; advising founders scaling vibe-coded apps." Keep it genuinely current; this line is now doing the work the feed would have. Aimed at the customer, not the FDE track.
-- **Selected Work block**: 3–5 projects pulled out of prose into scannable cards, outcome-first, one line + link. Strongest candidates: CalendarNotification (80k+ downloads, press in 7+ countries), cnf-testsuite (CNCF, 175+ stars, conference talk), the BCGX Snowflake pipeline (10M datapoints/day, $10–20M/yr customer savings), OpenSea social integrations. These cards also show layout craft.
-- **De-bold pass** across both pages: remove ~90% of bold; inline links and the type system carry emphasis.
+## Current Architecture
 
-### Phase 3: CTA hierarchy (customer-first) + /work-together + polish
+Worth surfacing so the plan's phases land on real seams.
 
-Make the consulting customer the primary action; demote everything else.
+**Route layout** (`app/`):
 
-- **Primary CTA = the consulting customer**: a single prominent "Work with me" / "Fix my app" button → `/work-together`, styled as the one clear button in the design system. LinkedIn / GitHub / email / "brainstorm" demote to a small secondary link row. (Today these four compete equally.)
-- **Reframe `/work-together`** as a benefit-led page leading with the ICP line ("I rescue profitable AI-built apps from the last-20% death spiral") rather than process-first. This is the one page where founder-voice (benefit-first) is correct.
-- **Final polish**: consistent application of the design system, mobile QA, footer/link integrity (including the "articles" nav link).
+```
+app/
+  layout.tsx                  # bare html/body shell
+  globals.scss                # @imports every SCSS partial — DIES in Phase 0
+  admin/                      # Sveltia CMS, untouched
+  _components/                # Navbar, Footer, CustomLink, etc.
+  (site)/
+    layout.tsx                # analytics scripts + Navbar + main + Footer
+    page.tsx                  # homepage (current monument)
+    about/page.tsx
+    work-together/page.tsx
+    contact/page.tsx
+    pastMeetups/...
+    not-found.tsx
+```
 
-## Files Changed Summary
+**Content pipeline:** `lib/content.ts` reads `src/content/{collection}/index.md` (frontmatter + body) and returns typed objects (`lib/content-types.ts`). Pages call `getHomePage()`, `getLayoutData()`, etc., at build time. **The Sveltia admin config that defines the collection fields is a separate file** — confirm its location and shape before Phase 2 (likely `public/admin/config.yml` or similar Sveltia convention).
 
-| File | Change |
-|------|--------|
-| `styles/` + theme/token config (e.g. tailwind config or CSS vars) | New design system: type scale, palette, spacing, component primitives |
-| Shared components (`components/Nav`, `Footer`, `WorkCard`, `CTAButton`) | New reusable primitives; Nav retains "articles" → Substack |
-| Homepage (`pages/index` / `app/page`) | Reduce to doorway: identity line, Selected Work, Now line, primary CTA |
-| New `/about` (`pages/about` / `app/about/page`) | Full credibility arc migrated from old homepage |
-| `/work-together` | Reframe benefit-first with the ICP positioning line |
+**Key insight that unlocks the approach:** the design-system reset and the IA restructure both want to throw away the same code (`src/styles/*.scss`, the current `page.tsx`, the current `src/content/home/index.md` schema). So rip-and-replace styling + schema restructure + page rewrite can happen as one coherent pass per page, rather than three serial migrations.
 
-## Testing
+## Design Decisions
 
-- **Visual QA on desktop + mobile**: every page renders cleanly; verify mobile specifically (current weak point).
-- **Design-system consistency**: type scale, spacing, and the single accent are applied uniformly; no orphan styles.
-- **5-second test**: an unfamiliar viewer can state (a) who you are and (b) what to do next within 5 seconds, and the primary CTA they notice is the consulting one.
-- **Freshness check**: the "Now" line reads as genuinely current; no element implies a stale blog (no dated feed surfaced).
-- **Link integrity**: all links resolve (LinkedIn, GitHub, OpenSea, CNCF, articles→Substack, email, /about, /work-together).
-- **De-bold sanity**: no section has more than one emphasized phrase.
+### Tailwind v4 with `@theme`, not v3 + `tailwind.config.js`
 
-## Open Questions
+v4 is current as of 2025+. Config moves into CSS via `@theme { --color-…: …; }`, which means design tokens are real CSS custom properties — themeable at runtime, no JS-to-CSS bridge. The existing `variables.scss` palette (`$golden-apricot`, `$greenway`, etc.) ports directly. Drawback: smaller ecosystem of v3-era plugins still assumes JS config; we're not using plugins, so it doesn't bite us.
 
-1. **Light/dark theme switcher?** A tasteful toggle is a nice full-stack flex and on-brand for a craft-forward site, but it's scope. Defaulting to out-of-scope for v1 unless it's cheap with the chosen styling approach.
+### Considered vs. sparse
 
-## Future Enhancements (deferred, not v1)
+Lean considered, not sparse, because the site is craft evidence. The bar is "restraint that reads as taste," not maximalism — clean beats clever. Concretely:
+- **Type:** a deliberate pairing — a characterful display face for name/headings + a highly readable text face. A confident headline does a lot of the "this person has taste" work.
+- **Color:** restrained palette with one accent. Brand equity in "boujeehacker" — pick an accent that carries it without going loud. Existing `$golden-apricot` is a strong starting point.
+- **Spacing & rhythm:** spacing scale and a constrained reading measure (~60–75ch) so prose doesn't sprawl.
+- **Motion:** subtle hover transitions only. Anything gimmicky is a regression.
 
-- **Spotlighted writing feed on the homepage** once the blog is active again — a dated, reverse-chronological list (Larson-style), sourced via build-time Substack RSS in Next.js. Switch on only when there's a consistent cadence to show; until then a feed would signal staleness.
+### Mobile-first
+
+The current site renders poorly narrow; mobile is where most first impressions land. Every component built in Phase 1 must look right at 375px *before* being checked at desktop. This is a tooling constraint, not a polish step.
+
+### One CTA, demoted social row
+
+The current homepage has four equal-weight CTAs (LinkedIn, GitHub, Twitter, sometimes "brainstorm"). The doorway gets exactly one primary button → `/work-together`. Social links demote to a small secondary row (icon + label, muted color). This is the single biggest hierarchy change and it has to survive every later phase.
+
+### CMS schema restructure
+
+New homepage frontmatter:
+
+```yaml
+identityLine: "I'm William Harris — I build software real users depend on, from 100M-user systems at [LinkedIn](...) to early [OpenSea](...)"
+nowLine: "Building RecoverMoney on Whop; advising founders scaling vibe-coded apps."
+selectedWork:
+  - title: "cnf-testsuite"
+    outcome: "CNCF project, 175+ stars, conference talk"
+    url: "..."
+  - title: "BCGX Snowflake pipeline"
+    outcome: "10M datapoints/day, $10–20M/yr customer savings"
+    url: "..."
+  # 3–5 total
+primaryCTA:
+  heading: "Work with me"
+  subHeading: "Fix and scale your vibe-coded app"
+  url: "/work-together"
+socialLinks:
+  - { label: "LinkedIn", url: "...", icon: "linkedin" }
+  - { label: "GitHub", url: "...", icon: "github" }
+  - { label: "Email", url: "mailto:..." }
+seo: { browserTitle: …, description: …, keywords: …, title: … }   # unchanged
+```
+
+Sveltia admin config (`config.yml` for the `home` collection) updates to match. Old fields (`title`, `homeMainContent`, `callToActions.{first,second}CTA`, `headerImage`) are removed. `lib/content-types.ts` updates with the new types.
+
+## Implementation Plan
+
+### Milestone A — Foundation
+
+#### Phase 0: Install Tailwind v4, set up tokens, delete SCSS
+
+**0a.** Install `tailwindcss@^4` and its Next.js/PostCSS plumbing (`@tailwindcss/postcss`). Add `postcss.config.mjs`. Remove `sass` from `package.json`.
+
+**0b.** Replace `app/globals.scss` with `app/globals.css` containing `@import "tailwindcss";` and an `@theme` block that ports `variables.scss` tokens to CSS custom properties — palette (`--color-highlight`, `--color-background-dark`, etc.), spacing scale, container width, transition duration. Pick fonts here (display + text via `next/font` in `app/layout.tsx`); register as `--font-display`, `--font-sans`.
+
+**0c.** Delete all of `src/styles/*.scss` and the imports in `app/globals.scss`. Confirm the build fails *only* on missing classes from the now-deleted styles (this proves nothing else depends on the SCSS files).
+
+**0d.** Add Tailwind class to `app/layout.tsx` body for base text/bg color from the new tokens, so unstyled pages aren't blinding while we rebuild.
+
+**Verification:** `pnpm build` succeeds with `output: "export"` after we stub broken pages with `<div>placeholder</div>`. Tokens visible as CSS vars in DevTools.
+
+#### Phase 1: Design system primitives
+
+Build the reusable pieces under `app/_components/`. Each is mobile-first, uses tokens (no hex literals in JSX), and gets visually checked at 375px first, then desktop.
+
+- **`Container`** — max-width wrapper with consistent horizontal padding.
+- **`Prose`** — typography container with ~65ch measure for markdown content (`/about`, `/work-together`).
+- **`Navbar`** (refactor existing) — name as logo link to `/about`; links: `articles` (→ Substack), `about`, `work-together`. Mobile menu pattern.
+- **`Footer`** (refactor existing) — minimal: name, year, small social row, articles link.
+- **`CTAButton`** — single visual treatment, used exactly once per page as the primary action.
+- **`SocialLinkRow`** — small, muted; not a CTA.
+- **`WorkCard`** — title + one-line outcome + link arrow; scannable.
+- **`IdentityLine`** — renders markdown with inline links, no bold.
+- **`NowLine`** — small label + one-line current status.
+
+Each primitive lives in its own file. Type props strictly; no `any`.
+
+**Verification:** a throwaway `/app/(site)/_preview/page.tsx` (gitignored or deleted before merge) renders one of each primitive on a single page, mobile-first, looks composed not slapped together.
+
+#### Milestone A Checkpoint
+
+Design system exists. Tokens are real CSS vars. SCSS is gone. Build is green with stubbed pages. **Stop and review the visual primitives with the user before continuing** — every later phase compounds on these.
+
+### Milestone B — Content restructure
+
+#### Phase 2: CMS schema + content migration
+
+**2a.** Update Sveltia admin config (locate the YAML config — likely `public/admin/config.yml`) for the `home` collection to match the new schema in Design Decisions above. Keep `about`, `work-together`, `navbar`, `footer` collections intact for now (they'll be touched in 2c).
+
+**2b.** Update `lib/content-types.ts` and `lib/content.ts` (`getHomePage`) to read the new fields. Migrate `src/content/home/index.md` frontmatter — port the strongest content from the old homepage prose into `selectedWork[]` entries (cnf-testsuite, BCGX pipeline, OpenSea social integrations are the leading candidates), write the new `identityLine` and `nowLine`.
+
+**2c.** Migrate the rest of the old homepage credibility material into `src/content/about/index.md` — full career arc (LinkedIn / OpenSea / BCGX), BCGX "hire a top FAANG team" framing, cnf-testsuite/CNCF + Crystal talk, self-taught/Georgia Tech story, mentoring, multi-hat narrative. Repeats a one-line identity at the top, Larson-style.
+
+**2d.** Update `src/content/work-together/index.md` to lead benefit-first with the ICP line ("I rescue profitable AI-built apps from the last-20% death spiral") rather than process-first. This is the one page where founder-voice (benefit-first) is correct.
+
+**2e.** Update `src/content/navbar/index.md` to include the `articles` link → Substack.
+
+**Verification:** `/admin` loads, the home collection editor shows the new fields, content saves and re-reads through `lib/content.ts` correctly.
+
+### Milestone C — New IA pages
+
+#### Phase 3: Doorway homepage
+
+Rewrite `app/(site)/page.tsx` to render the new schema using Phase 1 primitives:
+
+1. `<IdentityLine>` — single line, proof nouns linked inline, no bold.
+2. Selected Work — grid/list of `<WorkCard>` (3–5), outcome-first.
+3. `<NowLine>` — "currently…" one-liner.
+4. `<CTAButton>` — the single primary action → `/work-together`.
+5. `<SocialLinkRow>` — small, below the CTA.
+
+No `headerImage`. No `homeMainContent` blob. No `firstCTA`/`secondCTA`. The page is short by design.
+
+**Verification:** the 5-second test — an unfamiliar viewer can state (a) who you are and (b) what to do next, and the primary CTA they notice is the consulting one.
+
+#### Phase 4: `/about`, `/work-together`, and the long tail
+
+**4a.** Rewrite `app/(site)/about/page.tsx` to render the migrated `/about` content through `<Prose>`, with `<IdentityLine>` at top.
+
+**4b.** Rewrite `app/(site)/work-together/page.tsx` benefit-first per Phase 2d.
+
+**4c.** Rebuild `app/(site)/contact/page.tsx`, `app/(site)/pastMeetups/...`, `not-found.tsx`, and `MeetupBlock`/`RedirectShell`/`Content` components against Tailwind tokens. Same content and IA — just new styling. This is the "delete the SCSS and stop the bleeding" cleanup; no design changes beyond consistency.
+
+**4d.** De-bold pass across every page: remove ~90% of bold; inline links and type scale carry emphasis.
+
+#### Milestone C Checkpoint
+
+All routes render against Tailwind. Old SCSS is gone for good. Homepage is a doorway. **Run the testing plan in full before merging.**
+
+### Phase 5: Polish + ship
+
+- Mobile QA at 375px and 414px for every route. Mobile is the weak point we're explicitly fixing.
+- Link integrity: LinkedIn, GitHub, OpenSea, CNCF, articles→Substack, email, `/about`, `/work-together`.
+- Lighthouse pass on the homepage (perf and a11y, not SEO — SSG handles SEO fine).
+- Confirm analytics still fire (Segment/PostHog/Rudderstack/Leadsy snippets unchanged; verify in browser console with debug=true already set).
+- `pnpm typecheck` and `pnpm build` clean.
+
+## Files to Modify/Create
+
+### New Files
+
+| File | Purpose |
+|------|---------|
+| `app/globals.css` | Replaces `globals.scss`; `@import "tailwindcss"` + `@theme` tokens |
+| `postcss.config.mjs` | Tailwind v4 PostCSS plugin |
+| `app/_components/Container.tsx` | Layout wrapper primitive |
+| `app/_components/Prose.tsx` | Typography container for markdown |
+| `app/_components/CTAButton.tsx` | Single primary-CTA treatment |
+| `app/_components/SocialLinkRow.tsx` | Demoted social links |
+| `app/_components/WorkCard.tsx` | Selected Work card |
+| `app/_components/IdentityLine.tsx` | Homepage/about identity line with inline links |
+| `app/_components/NowLine.tsx` | "Now / currently" status line |
+
+### Modified Files
+
+| File | Changes |
+|------|---------|
+| `package.json` | Remove `sass`; add `tailwindcss@^4`, `@tailwindcss/postcss` |
+| `app/layout.tsx` | Register fonts via `next/font`; set body base classes |
+| `app/globals.scss` | **Deleted** (replaced by `globals.css`) |
+| `src/styles/*.scss` | **All deleted** |
+| `app/(site)/page.tsx` | Rewritten as doorway against Phase 1 primitives + new schema |
+| `app/(site)/about/page.tsx` | Renders migrated credibility content via `<Prose>` |
+| `app/(site)/work-together/page.tsx` | Benefit-first reframe |
+| `app/(site)/contact/page.tsx` | Re-styled, same content |
+| `app/(site)/pastMeetups/**` | Re-styled, same content |
+| `app/(site)/not-found.tsx` | Re-styled, same content |
+| `app/(site)/layout.tsx` | Minor — only if Navbar/Footer prop shapes change. Analytics scripts unchanged. |
+| `app/_components/Navbar.tsx` | Refactor to new design; add `articles` link |
+| `app/_components/Footer.tsx` | Refactor to minimal footer |
+| `lib/content.ts` | `getHomePage` reads new schema |
+| `lib/content-types.ts` | Types for new home schema |
+| `src/content/home/index.md` | New frontmatter (identityLine, nowLine, selectedWork[], primaryCTA, socialLinks) |
+| `src/content/about/index.md` | Adds migrated career arc content |
+| `src/content/work-together/index.md` | Benefit-first rewrite per Phase 2d |
+| `src/content/navbar/index.md` | Add `articles` link |
+| Sveltia admin config (likely `public/admin/config.yml`) | Schema updates for `home` collection |
+
+## Testing Plan
+
+No automated test suite exists; testing here is build, typecheck, and structured manual QA. That's appropriate for a SSG personal site — over-testing would be ceremony.
+
+### Build + type safety
+
+- `pnpm typecheck` clean after every phase that touches `lib/` or component props.
+- `pnpm build` produces `out/` successfully with `output: "export"`. No `globals.scss` references survive (`grep -r "globals.scss\|src/styles" app/ src/` returns nothing in Milestone A).
+- No SCSS imports anywhere (`grep -r '\.scss' app/ src/` returns nothing).
+
+### Visual / IA scenarios
+
+Each scenario is a named manual check, not a script. Run them on desktop *and* mobile (375px minimum).
+
+- **Doorway 5-second test** — fresh viewer states who you are + the next action in 5s; the CTA they identify is "Work with me."
+- **Mobile layout** — every route renders cleanly at 375px and 414px. No horizontal scroll. CTA is tappable (≥44px target).
+- **Design-system consistency** — type scale, spacing, single accent applied uniformly; no orphan inline styles, no hex literals in JSX outside `globals.css`.
+- **De-bold sanity** — no section has more than one emphasized phrase. `grep -r 'font-bold\|<strong>\|\*\*' src/content/ app/` to audit.
+- **Freshness check** — `nowLine` reads as genuinely current; nothing implies a stale blog (no dated feed surfaced).
+- **Hierarchy check** — homepage has exactly one button-styled CTA; social links are visibly demoted.
+
+### Edge cases / error handling
+
+- **CMS missing fields** — if `src/content/home/index.md` lacks a new field, the page should fail the build (typed `getHomePage()` enforces this). Confirm by temporarily removing a field and seeing the build error.
+- **Empty `selectedWork[]`** — render the section as absent, not as an empty grid with borders.
+- **Long `nowLine`** — wraps gracefully without breaking the doorway layout.
+- **Long markdown link text in `identityLine`** — doesn't break the single-line aesthetic on mobile (allowed to wrap, but should look composed).
+
+### Link integrity (all must resolve)
+
+LinkedIn, GitHub, OpenSea, CNCF / cnf-testsuite, articles → Substack, email, `/about`, `/work-together`, name → `/about`.
+
+### Analytics sanity
+
+Open homepage with DevTools console. Confirm Segment, PostHog (debug=true is on), Rudderstack, and Leadsy initialize without errors. We changed zero analytics code; this just guards against a regression from layout reshuffling.
+
+## Future Enhancements
+
+1. **Spotlighted writing feed on homepage** — dated, reverse-chronological list (Larson-style), sourced via build-time Substack RSS in Next.js. Switch on only when there's consistent cadence; until then, a feed signals staleness.
+2. **Light/dark theme switcher** — `@theme` tokens make this cheap: define a `[data-theme="dark"]` block in `globals.css` overriding the same CSS vars, add a toggle. Genuine full-stack flex, on-brand for a craft site, but scope for v2.
+3. **Per-project case-study pages** — `WorkCard` links to deep pages (e.g. `/work/cnf-testsuite`) with the full story, screenshots, links. Currently links go to external sources directly.
+4. **`/now` page** — the `nowLine` graduates to a full Sivers-style `/now` page when there's enough to say.
+
+## Notes
+
+- **Personal site, single user, single branch:** no feature flag, no migration window, no compat shim. Just rewrite.
+- **Sveltia CMS is a strict constraint:** every content change must round-trip through `/admin` cleanly. Don't introduce content that only lives in JSX — that breaks the user's editing workflow.
+- **Analytics snippets are load-bearing:** PostHog's debug mode is on (`debug: true` in `(site)/layout.tsx`). Don't refactor those in this project; it's a separate cleanup.
+- **`frontend-design` skill** should be consulted at Phase 1 implementation time for token/styling guidance.
+
+## Related Work
+
+- Original plan version (this file at commit `32fddeb`) — captured the IA and design intent; this revision adds the Tailwind migration and binds the plan to the actual Next.js 16 / Sveltia / SCSS architecture.
+- `lethain.com` (Larson) — structural reference for doorway homepage.
+- `brianlovin.com` — reference for "site as portfolio piece" treatment.
