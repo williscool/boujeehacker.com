@@ -11,21 +11,21 @@ export default function Navbar({ data }: NavbarProps) {
   return (
     <nav className="border-b border-border bg-bg">
       <Container width="wide">
-        <div className="flex h-[var(--navbar-height)] items-center justify-between gap-6">
+        <div className="flex h-[var(--navbar-height)] items-center justify-between gap-3 sm:gap-6">
           <Link
             href="/about"
-            className="font-display text-lg text-text no-underline hover:text-link-hover"
+            className="font-display text-base sm:text-lg text-text no-underline hover:text-link-hover"
           >
             boujeehacker
           </Link>
           {data.menuItems.length > 0 && (
-            <ul className="flex items-center gap-5 list-none p-0 m-0 text-sm">
+            <ul className="flex items-center gap-2 sm:gap-5 list-none p-0 m-0 text-xs sm:text-sm">
               {data.menuItems.map((menuItem) => (
                 <li key={menuItem.linkURL}>
                   <CustomLink
                     linkType={menuItem.linkType}
                     linkURL={menuItem.linkURL}
-                    className="text-text-muted no-underline hover:text-link-hover"
+                    className="text-text-muted no-underline hover:text-link-hover whitespace-nowrap"
                   >
                     {menuItem.label}
                   </CustomLink>

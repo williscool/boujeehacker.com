@@ -33,6 +33,13 @@ export default function RedirectShell({
           alt="Computer Doggo, taking you there"
           className="max-w-xs rounded-md border border-border"
         />
+        <pre
+          aria-hidden
+          className="m-0 font-mono text-xs sm:text-sm text-text-muted leading-tight whitespace-pre overflow-x-auto"
+        >{`(___________________________()6 \`-,
+(   ______________________   /''"\`
+ //\\                      //\\
+ "" ""                     "" ""`}</pre>
         <p className="m-0 text-text-muted">
           If the page doesn’t load,{" "}
           <a

@@ -21,12 +21,12 @@ export default async function HomePage() {
 
   return (
     <Container>
-      <div className="py-16 sm:py-24 space-y-12">
+      <div className="pt-8 pb-16 sm:pt-10 sm:pb-24 space-y-8">
         {home.avatar && (
           <img
             src={home.avatar.image}
             alt={home.avatar.imageAlt}
-            className="h-24 w-24 rounded-full object-cover border border-border"
+            className="h-20 w-20 rounded-full object-cover border border-border"
           />
         )}
 

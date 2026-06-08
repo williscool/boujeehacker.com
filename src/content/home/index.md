@@ -19,7 +19,7 @@ nowLine: |-
   Building RecoverMoney on Whop; advising founders scaling vibe-coded apps.
 primaryCTA:
   label: Work with me
-  url: /work-together
+  url: /work-together/
 socialLinks:
   - label: LinkedIn
     url: https://www.linkedin.com/in/31iqml/
