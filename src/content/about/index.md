@@ -1,8 +1,6 @@
 ---
 templateKey: about-page
 title: About
-identityLine: |-
-  I'm William Harris — I build software real users depend on, from 300M+-user systems at [LinkedIn](https://www.linkedin.com/in/31iqml/) to early [OpenSea](https://opensea.io/).
 seo:
   browserTitle: About — William Harris
   title: About — William Harris

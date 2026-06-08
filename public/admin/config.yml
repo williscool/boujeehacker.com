@@ -17,14 +17,7 @@ collections:
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page" }
           - { label: "Title", name: "title", widget: "string" }
-          - {
-              label: "Identity Line",
-              name: "identityLine",
-              widget: "markdown",
-              hint: "One-line identity at the top of the page, Larson-style. Inline links allowed.",
-              buttons: [italic, link],
-            }
-          - { label: "Body", name: "body", widget: "markdown", hint: "The credibility arc — career, projects, story." }
+          - { label: "Body", name: "body", widget: "markdown", hint: "The credibility arc — career, projects, story. The identity line at the top of the page is sourced from the Home collection." }
           - {
               label: "SEO & Meta",
               name: "seo",

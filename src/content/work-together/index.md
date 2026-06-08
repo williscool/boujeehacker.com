@@ -22,7 +22,7 @@ You shipped something with AI tooling and it's getting traction — paying users
 
 ## Why me
 
-14 years shipping production software at scale — from 300M+-user systems at LinkedIn to early OpenSea to BCGX. I've seen what breaks at every order of magnitude and know what's worth fixing now vs. later. [More background on /about](/about/).
+14 years shipping production software at scale — from scrappy startups like early OpenSea to 300M+-user systems at LinkedIn to BCGX. I've seen what breaks at every order of magnitude and know what's worth fixing now vs. later. [More background on /about](/about/).
 
 ## How we start
 

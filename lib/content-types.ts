@@ -42,7 +42,6 @@ export interface HomeFrontmatter {
 export interface AboutFrontmatter {
   templateKey: "about-page";
   title: string;
-  identityLine: string;
   seo: SeoFields;
 }
 
