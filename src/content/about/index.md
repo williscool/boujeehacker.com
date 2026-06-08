@@ -22,7 +22,7 @@ Forward-deployed engineers embed with client teams and shipping production softw
 At [BCGX](https://www.bcg.com/x/), the tech build-and-design unit of [BCG](<https://en.wikipedia.org/wiki/Big_Three_(management_consultancies)>), the pitch is simple: hire a top [FAANG / MANGA](https://en.wikipedia.org/wiki/Big_Tech)-caliber team to overhaul your stack, take a product from design to scale, or AI enable your business. That's the team I work with. So far I've:
 
 * Been lead engineer on biz-dev proposals for projects sold for $6M+ to clients in energy and med-tech.
-* Anchored the backend across 6 teams and 30+ engineers on a Snowflake pipeline processing 10M+ datapoints/day, saving customers $10 to $20M/yr in transportation logistics.
+* Anchored the backend across 6 teams and 30+ engineers on a Snowflake pipeline processing 10M+ datapoints/day, saving customers $10MM to $20MM/yr in transportation logistics.
 * Built a weekly sentiment-analysis pipeline against a graph database of the entire energy economy, later presented to an executive department of the federal government.
 * Led an internal team to build one of BCGX's first multi-agent generative-AI applications applied to content generation.
 
