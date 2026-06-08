@@ -30,15 +30,15 @@ homeMainContent: |-
   So far I've worked on everything from 
 
   * **Lead Engineer** on **biz dev proposals for projects sold for over 6 million dollars** to clients in Energy and Med Tech
-  * Anchor backend engineer **coordinating across 6 teams and 30+ engineers** to build a snowflake pipeline connection that processes over **10 Million datapoints per day** and **enables customers to save 10 to 20 million dollars per year in transportation logistics**
-  * to **building a weekly sentiment analysis pipeline for a graph database of the entire energy economy**. (Which I later presented to an executive department of the federal government.)
+  * Anchor backend engineer coordinating across 6 teams and 30+ engineer**s** to build a snowflake pipeline connection that processes over **10 Million datapoints per day** and **enables customers to save 10 to 20 million dollars per year in transportation logistics**
+  * to building a weekly sentiment analysis pipeline for a graph database of the entire energy economy. (Which I later presented to an executive department of the federal government.)
   * and **led an internal BCGX team to build one of the companies first multi agent Generative AI Applications** to power content generation.
 
   Prior to that
 
   I was one of the **first 50 employees at** [**OpenSea**](https://opensea.io/) where 
 
-  * I built the [**foundations of social integrations**](https://twitter.com/opensea/status/1473416243688480779) with **Twitter, Instagram, and Discord** among other social networks **for all NFT collections and accounts** on the service.
+  * I built the [**foundations of social integrations**](https://twitter.com/opensea/status/1473416243688480779) with **Twitter, Instagram, and Discord** among other social networks for all NFT collections and accounts on the service.
   * I also designed and deployed the pioneering **social media metadata service backend that powers trust and safety analytics** based on imported social profiles (i.e. a users follower count and other metrics) among other projects
 
   ## Want to work together?
