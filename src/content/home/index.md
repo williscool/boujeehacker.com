@@ -3,8 +3,7 @@ templateKey: home-page
 avatar:
   image: /img/fb.jpg
   imageAlt: William Harris
-identityLine: |-
-  I'm [William Harris](/about). I build software real users depend on, from scrappy startups like early [OpenSea](https://opensea.io/) to 300M+ user systems at [LinkedIn](https://www.linkedin.com/in/31iqml/).
+identityLine: I'm [William Harris](/about). I build software real users depend on, from scrappy startups like early [OpenSea](https://opensea.io/) to 300M+ user systems at [LinkedIn](https://www.linkedin.com/in/31iqml/).
 selectedWork:
   - title: BCGX Client Snowflake pipeline; Senior Forward-Deployed Engineer
     outcome: 10M datapoints/day; $10–20M/yr customer savings in transportation logistics
@@ -15,8 +14,7 @@ selectedWork:
   - title: cnf-testsuite
     outcome: CNCF project, 175+ stars, 2021 Crystal conference talk
     url: https://github.com/lfn-cnti/testsuite
-nowLine: |-
-  Building [RecoverMoney on Whop](https://whop.com/recovermoney); advising founders scaling (vibe-coded) apps.
+nowLine: '[Advising founders and software teams ](https://boujeehacker.com/work-together/)scaling (vibe-coded) apps.'
 primaryCTA:
   label: Work with me
   url: /work-together/
