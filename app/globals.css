@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f5f1ea;
+  --color-surface: #ede7dc;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b6359;
+  --color-border: #d9d1c2;
+  --color-link: #1a1a1a;
+  --color-link-hover: #c8553d;
+  --color-accent: #c8553d;
+  --color-accent-hover: #a8412e;
+  --color-focus: #c8553d;
+
+  --font-display: var(--font-display-family), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans-family), ui-sans-serif, system-ui, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+
+  --spacing-section: 80px;
+  --spacing-section-mobile: 40px;
+  --spacing-container: 24px;
+
+  --container-width: 1100px;
+  --measure: 65ch;
+
+  --navbar-height: 56px;
+
+  --transition-duration: 200ms;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+a {
+  color: var(--color-link);
+  transition: color var(--transition-duration) ease,
+    text-decoration-color var(--transition-duration) ease,
+    background-color var(--transition-duration) ease;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.prose-root a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-border);
+}
+
+.prose-root a:hover {
+  color: var(--color-link-hover);
+  text-decoration-color: var(--color-link-hover);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}

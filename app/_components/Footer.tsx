@@ -1,3 +1,5 @@
+import Container from "./Container";
+import SocialLinkRow from "./SocialLinkRow";
 import type { FooterFrontmatter } from "../../lib/content-types";
 
 interface FooterProps {
@@ -5,44 +7,22 @@ interface FooterProps {
 }
 
 export default function Footer({ data }: FooterProps) {
-  const { linksTitle, footerLinks, description, title } = data;
+  const year = new Date().getFullYear();
+  const links = data.footerLinks.map((l) => ({
+    label: l.label,
+    href: l.linkURL,
+  }));
+
   return (
-    <nav className="footer">
-      <div className="footer-container  container">
-        <div className="footer-top">
-          <div className="footer-about">
-            <h2 className="footer-aboutTitle">{title}</h2>
-            <p className="footer-aboutDescription">{description}</p>
-          </div>
-          {footerLinks.length > 0 && (
-            <div className="footer-linksContainer">
-              <h2 className="footer-aboutTitle">{linksTitle}</h2>
-              <ul className="footer-socialMenu">
-                {footerLinks.map((footerLink) => (
-                  <li
-                    key={footerLink.linkURL}
-                    className="footer-socialMenuItem"
-                  >
-                    <a
-                      className="footer-footerLink"
-                      href={footerLink.linkURL}
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      <img
-                        className="footer-footerLinkIcon"
-                        src={footerLink.image}
-                        alt={footerLink.imageAlt}
-                      />
-                      {footerLink.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+    <footer className="mt-[var(--spacing-section)] border-t border-border py-10">
+      <Container width="wide">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="m-0 text-sm text-text-muted">
+            © {year} William Harris
+          </p>
+          {links.length > 0 && <SocialLinkRow links={links} />}
         </div>
-      </div>
-    </nav>
+      </Container>
+    </footer>
   );
 }

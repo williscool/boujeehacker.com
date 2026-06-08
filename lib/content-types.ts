@@ -12,75 +12,38 @@ export interface SeoFields {
   keywords?: string;
 }
 
-export interface CallToAction {
-  heading: string;
-  subHeading: string;
-  linkType: LinkType;
-  linkURL: string;
+export interface SelectedWorkItem {
+  title: string;
+  outcome: string;
+  url: string;
+}
+
+export interface PrimaryCTA {
+  label: string;
+  url: string;
+}
+
+export interface HomeSocialLink {
+  label: string;
+  url: string;
 }
 
 export interface HomeFrontmatter {
   templateKey: "home-page";
-  title: string;
-  headerImage?: ImageRef;
-  homeMainContent: string;
-  callToActions: {
-    firstCTA: CallToAction;
-    secondCTA: CallToAction;
-  };
+  avatar?: ImageRef;
+  identityLine: string;
+  selectedWork: SelectedWorkItem[];
+  nowLine: string;
+  primaryCTA: PrimaryCTA;
+  socialLinks: HomeSocialLink[];
   seo: SeoFields;
-}
-
-export interface AboutOrganizerEntry extends ImageRef {
-  name: string;
 }
 
 export interface AboutFrontmatter {
   templateKey: "about-page";
   title: string;
-  mainImage: ImageRef;
-  gallery: ImageRef[];
-  developerGroups: string;
-  organizers: {
-    title: string;
-    gallery: AboutOrganizerEntry[];
-  };
+  identityLine: string;
   seo: SeoFields;
-}
-
-export interface PastMeetupsFrontmatter {
-  templateKey: "past-meetups-page";
-  title: string;
-  path?: string;
-  seo: SeoFields;
-}
-
-export interface PresenterLink {
-  linkText: string;
-  linkURL: string;
-}
-
-export interface MeetupPresenter {
-  name: string;
-  image?: string;
-  presentationTitle?: string;
-  text: string;
-  links?: PresenterLink[];
-}
-
-export interface MeetupLocation {
-  name: string;
-  mapsLink?: string;
-  mapsLatitude?: number;
-  mapsLongitude?: number;
-}
-
-export interface MeetupFrontmatter {
-  templateKey?: "meetup";
-  title: string;
-  date: string | Date;
-  presenters: MeetupPresenter[];
-  location: MeetupLocation;
 }
 
 export interface NavbarMenuItem {
@@ -116,19 +79,19 @@ export interface FooterFrontmatter {
 }
 
 export interface RedirectFrontmatter {
-  templateKey: "contact" | "work-together";
+  templateKey: "contact";
   redirectTo: string;
+}
+
+export interface WorkTogetherFrontmatter {
+  templateKey: "work-together";
+  title: string;
+  icpLine: string;
+  deckUrl?: string;
+  seo: SeoFields;
 }
 
 export interface ContentDoc<F> {
   frontmatter: F;
   html: string;
-}
-
-export interface MeetupDoc {
-  slug: string;
-  frontmatter: MeetupFrontmatter;
-  html: string;
-  rawDate: Date;
-  formattedDate: string;
 }
