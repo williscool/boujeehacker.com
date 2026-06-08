@@ -25,7 +25,7 @@ Either way, you need senior hands now, not a job req.
 * Mentorship for whoever's building it (you or your team) so it keeps holding up after I leave.
 
 ## Why me
-14 years shipping production software at scale, from scrappy startups like early OpenSea to 300M+-user systems at LinkedIn to BCGX. I've seen what breaks at every order of magnitude and know what's worth fixing now vs. later. [More background on /about](/about/).
+14 years shipping production software at scale, from scrappy startups like early OpenSea to 300MM+-user systems at LinkedIn to BCGX. I've seen what breaks at every order of magnitude and know what's worth fixing now vs. later. [More background on /about](/about/).
 
 ## How we start
 A short call to figure out whether I can actually help. If yes, a scoped engagement; if no, I'll point you at someone who can.
