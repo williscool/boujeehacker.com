@@ -33,7 +33,7 @@ export default async function HomePage() {
         <IdentityLine markdown={home.identityLine} />
 
         <div className="flex flex-col gap-5 items-start">
-          <CTAButton href={home.primaryCTA.url}>
+          <CTAButton href={home.primaryCTA.url} location="home-primary-cta">
             {home.primaryCTA.label}
           </CTAButton>
           <SocialLinkRow
@@ -41,6 +41,7 @@ export default async function HomePage() {
               label: l.label,
               href: l.url,
             }))}
+            location="home-socials"
           />
         </div>
 
