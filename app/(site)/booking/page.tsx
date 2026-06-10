@@ -10,7 +10,11 @@ export default async function BookingPage() {
   return (
     <>
       <meta httpEquiv="refresh" content={`2;url=${url}`} />
-      <RedirectShell redirectTo={url} label="Taking you to booking" />
+      <RedirectShell
+        redirectTo={url}
+        label="Taking you to booking"
+        redirectName="booking"
+      />
     </>
   );
 }

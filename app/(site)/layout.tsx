@@ -29,7 +29,7 @@ export default async function SiteLayout({
             window.posthog.init(POSTHOG_API_KEY, {
               api_host: 'https://us.i.posthog.com',
               segment: window.analytics,
-              capture_pageview: true,
+              capture_pageview: false,
               capture_pageleave: true,
               loaded: (posthog) => {
                 window.analytics.page();
