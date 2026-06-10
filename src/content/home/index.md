@@ -3,7 +3,7 @@ templateKey: home-page
 avatar:
   image: /img/fb.jpg
   imageAlt: William Harris
-identityLine: Hi! I'm [William Harris](/about), I build software real users depend on. From scrappy startups like early [OpenSea](https://opensea.io/) to 300MM+ user systems at [LinkedIn](https://www.linkedin.com/in/31iqml/).
+identityLine: Hi! I'm [William Harris](/about). I build software real users depend on, from scrappy startups like early [OpenSea](https://opensea.io/) to 300MM+ user systems at [LinkedIn](https://www.linkedin.com/in/31iqml/).
 selectedWork:
   - title: BCGX Client Snowflake pipeline; Senior Forward-Deployed Engineer
     outcome: 10M datapoints/day; $10–20M/yr customer savings in transportation logistics
