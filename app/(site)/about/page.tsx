@@ -20,7 +20,7 @@ export default async function AboutPage() {
 
   return (
     <Container>
-      <div className="py-16 sm:py-24 space-y-10">
+      <div className="pt-16 pb-10 sm:pt-24 sm:pb-12 space-y-10">
         <IdentityLine markdown={home.identityLine} />
         <Prose html={html} />
       </div>
