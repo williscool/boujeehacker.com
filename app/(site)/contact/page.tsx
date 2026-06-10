@@ -67,7 +67,9 @@ export default async function ContactPage() {
           )}
         </div>
 
-        <CTAButton href="/work-together/">Work with me</CTAButton>
+        <CTAButton href="/work-together/" location="contact-cta">
+          Work with me
+        </CTAButton>
       </div>
     </Container>
   );

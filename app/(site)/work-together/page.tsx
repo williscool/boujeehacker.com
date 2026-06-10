@@ -3,6 +3,7 @@ import Container from "../../_components/Container";
 import IdentityLine from "../../_components/IdentityLine";
 import Prose from "../../_components/Prose";
 import CTAButton from "../../_components/CTAButton";
+import DeckLink from "./DeckLink";
 import { getWorkTogetherPage } from "../../../lib/content";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -13,18 +14,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-function DeckFootnote({ url }: { url: string }) {
+function DeckFootnote({ url, location }: { url: string; location: string }) {
   return (
     <p className="text-sm text-text-muted m-0">
       Want more details?{" "}
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener"
-        className="underline decoration-border underline-offset-[3px] hover:text-link-hover hover:decoration-link-hover"
-      >
+      <DeckLink url={url} location={location}>
         Here's the pitch deck
-      </a>
+      </DeckLink>
       .
     </p>
   );
@@ -44,7 +40,11 @@ export default async function WorkTogetherPage() {
           <div className="space-y-8 min-w-0">
             {bookingUrl && (
               <div className="lg:hidden">
-                <CTAButton href={bookingUrl} external>
+                <CTAButton
+                  href={bookingUrl}
+                  external
+                  location="work-together-cta-mobile-top"
+                >
                   Book a time
                 </CTAButton>
               </div>
@@ -54,13 +54,20 @@ export default async function WorkTogetherPage() {
 
             <div className="lg:hidden space-y-6">
               {bookingUrl && (
-                <CTAButton href={bookingUrl} external>
+                <CTAButton
+                  href={bookingUrl}
+                  external
+                  location="work-together-cta-mobile-bottom"
+                >
                   Book a time
                 </CTAButton>
               )}
               {deckUrl && (
                 <div className="pt-6 border-t border-border max-w-[var(--measure)]">
-                  <DeckFootnote url={deckUrl} />
+                  <DeckFootnote
+                    url={deckUrl}
+                    location="work-together-deck-mobile"
+                  />
                 </div>
               )}
             </div>
@@ -70,11 +77,20 @@ export default async function WorkTogetherPage() {
           <aside className="hidden lg:block">
             <div className="sticky top-8 space-y-5">
               {bookingUrl && (
-                <CTAButton href={bookingUrl} external>
+                <CTAButton
+                  href={bookingUrl}
+                  external
+                  location="work-together-cta-desktop-sticky"
+                >
                   Book a time
                 </CTAButton>
               )}
-              {deckUrl && <DeckFootnote url={deckUrl} />}
+              {deckUrl && (
+                <DeckFootnote
+                  url={deckUrl}
+                  location="work-together-deck-desktop"
+                />
+              )}
             </div>
           </aside>
         </div>
