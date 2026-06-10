@@ -21,13 +21,16 @@ export default function CustomLink({
   location = "unknown",
 }: CustomLinkProps) {
   const text = typeof children === "string" ? children : "";
-  const onClick = () =>
-    trackLinkClick({
-      href: linkURL,
-      text,
-      location,
-      external: linkType !== "internal",
-    });
+  const onClick = (e: React.MouseEvent<HTMLAnchorElement>) =>
+    trackLinkClick(
+      {
+        href: linkURL,
+        text,
+        location,
+        external: linkType !== "internal",
+      },
+      e,
+    );
 
   if (linkType === "internal") {
     return (

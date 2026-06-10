@@ -18,12 +18,15 @@ export default function Navbar({ data }: NavbarProps) {
           <Link
             href="/"
             className="font-display text-base sm:text-lg text-text no-underline hover:text-link-hover"
-            onClick={() =>
-              trackLinkClick({
-                href: "/",
-                text: "boujeehacker",
-                location: "navbar-home",
-              })
+            onClick={(e) =>
+              trackLinkClick(
+                {
+                  href: "/",
+                  text: "boujeehacker",
+                  location: "navbar-home",
+                },
+                e,
+              )
             }
           >
             boujeehacker

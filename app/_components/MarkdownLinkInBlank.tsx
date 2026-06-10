@@ -12,12 +12,15 @@ export default function MarkdownLinkInBlank({
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    trackLinkClick({
-      href: props.href ?? "",
-      text: typeof props.children === "string" ? props.children : "",
-      location: "markdown-link",
-      external: true,
-    });
+    trackLinkClick(
+      {
+        href: props.href ?? "",
+        text: typeof props.children === "string" ? props.children : "",
+        location: "markdown-link",
+        external: true,
+      },
+      e,
+    );
     onClick?.(e);
   };
 

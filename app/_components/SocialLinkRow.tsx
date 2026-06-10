@@ -23,13 +23,16 @@ export default function SocialLinkRow({
             target="_blank"
             rel="noopener"
             className="text-text-muted no-underline hover:text-link-hover hover:underline"
-            onClick={() =>
-              trackLinkClick({
-                href: link.href,
-                text: link.label,
-                location,
-                external: true,
-              })
+            onClick={(e) =>
+              trackLinkClick(
+                {
+                  href: link.href,
+                  text: link.label,
+                  location,
+                  external: true,
+                },
+                e,
+              )
             }
           >
             {link.label}

@@ -19,8 +19,8 @@ export default function CTAButton({
     "inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-bg no-underline font-medium transition-colors duration-[var(--transition-duration)] hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-focus focus-visible:outline-offset-2";
 
   const text = typeof children === "string" ? children : "";
-  const onClick = () =>
-    trackLinkClick({ href, text, location, external });
+  const onClick = (e: React.MouseEvent<HTMLAnchorElement>) =>
+    trackLinkClick({ href, text, location, external }, e);
 
   if (external) {
     return (

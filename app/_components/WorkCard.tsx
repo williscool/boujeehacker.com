@@ -18,13 +18,16 @@ export default function WorkCard({ item }: { item: WorkItem }) {
     <a
       href={item.url}
       {...linkProps}
-      onClick={() =>
-        trackLinkClick({
-          href: item.url,
-          text: item.title,
-          location: "work-card",
-          external: !isInternal,
-        })
+      onClick={(e) =>
+        trackLinkClick(
+          {
+            href: item.url,
+            text: item.title,
+            location: "work-card",
+            external: !isInternal,
+          },
+          e,
+        )
       }
       className="group block border-t border-border py-5 no-underline transition-colors duration-[var(--transition-duration)] hover:bg-surface/50"
     >
