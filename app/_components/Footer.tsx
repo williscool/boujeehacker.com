@@ -14,7 +14,7 @@ export default function Footer({ data }: FooterProps) {
   }));
 
   return (
-    <footer className="mt-[var(--spacing-section)] border-t border-border py-10">
+    <footer className="border-t border-border py-10">
       <Container width="wide">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="m-0 text-sm text-text-muted">
