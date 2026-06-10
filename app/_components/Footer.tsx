@@ -20,7 +20,7 @@ export default function Footer({ data }: FooterProps) {
           <p className="m-0 text-sm text-text-muted">
             © {year} William Harris
           </p>
-          {links.length > 0 && <SocialLinkRow links={links} />}
+          {links.length > 0 && <SocialLinkRow links={links} location="footer" />}
         </div>
       </Container>
     </footer>

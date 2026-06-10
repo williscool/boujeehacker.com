@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import CustomLink from "./CustomLink";
 import Container from "./Container";
 import type { NavbarFrontmatter } from "../../lib/content-types";
+import { trackLinkClick } from "./trackLinkClick";
 
 interface NavbarProps {
   data: NavbarFrontmatter;
@@ -15,6 +18,13 @@ export default function Navbar({ data }: NavbarProps) {
           <Link
             href="/"
             className="font-display text-base sm:text-lg text-text no-underline hover:text-link-hover"
+            onClick={() =>
+              trackLinkClick({
+                href: "/",
+                text: "boujeehacker",
+                location: "navbar-home",
+              })
+            }
           >
             boujeehacker
           </Link>
@@ -26,6 +36,7 @@ export default function Navbar({ data }: NavbarProps) {
                     linkType={menuItem.linkType}
                     linkURL={menuItem.linkURL}
                     className="text-text-muted no-underline hover:text-link-hover whitespace-nowrap"
+                    location="navbar"
                   >
                     {menuItem.label}
                   </CustomLink>
