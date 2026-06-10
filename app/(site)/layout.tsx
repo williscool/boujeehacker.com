@@ -34,6 +34,7 @@ export default async function SiteLayout({
               loaded: (posthog) => {
                 window.analytics.page();
               },
+              debug: true,
             });
           })
 
