@@ -1,33 +1,12 @@
 import type { Metadata } from "next";
 import Container from "../../_components/Container";
 import CTAButton from "../../_components/CTAButton";
+import ContactLinkCard from "../../_components/ContactLinkCard";
 import { getHomePage, getWorkTogetherPage } from "../../../lib/content";
 
 export const metadata: Metadata = {
   title: "Contact | William Harris",
 };
-
-interface LinkCardProps {
-  href: string;
-  label: string;
-  sublabel?: string;
-  external?: boolean;
-}
-
-function LinkCard({ href, label, sublabel, external }: LinkCardProps) {
-  return (
-    <a
-      href={href}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className="block w-full rounded-md border border-border bg-surface px-5 py-4 no-underline hover:border-accent transition-colors"
-    >
-      <span className="block text-base font-medium text-text">{label}</span>
-      {sublabel && (
-        <span className="block text-sm text-text-muted mt-0.5">{sublabel}</span>
-      )}
-    </a>
-  );
-}
 
 export default async function ContactPage() {
   const [home, workTogether] = await Promise.all([
@@ -59,19 +38,19 @@ export default async function ContactPage() {
         </div>
 
         <div className="space-y-3">
-          <LinkCard
+          <ContactLinkCard
             href="/booking/"
             label="Book time with me"
             sublabel="Schedule a call via Calendly"
           />
-          <LinkCard
+          <ContactLinkCard
             href="mailto:wharris@upscalews.com"
             label="Email"
             sublabel="wharris@upscalews.com"
             external
           />
           {linkedIn && (
-            <LinkCard
+            <ContactLinkCard
               href={linkedIn.url}
               label="LinkedIn"
               sublabel={linkedIn.url.replace("https://", "")}
@@ -79,7 +58,7 @@ export default async function ContactPage() {
             />
           )}
           {twitter && (
-            <LinkCard
+            <ContactLinkCard
               href={twitter.url}
               label="Twitter / X"
               sublabel={twitter.url.replace("https://", "")}

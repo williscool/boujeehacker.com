@@ -2,24 +2,37 @@
 
 import { useEffect } from "react";
 import Container from "./Container";
+import { trackLinkClick } from "./trackLinkClick";
 
 interface RedirectShellProps {
   redirectTo: string;
   label?: string;
+  redirectName?: string;
 }
 
 export default function RedirectShell({
   redirectTo,
   label = "Taking you there",
+  redirectName = "unknown",
 }: RedirectShellProps) {
   useEffect(() => {
+    try {
+      window.analytics?.track("Redirect Started", {
+        redirect_name: redirectName,
+        destination: redirectTo,
+        current_path: window.location.pathname,
+      });
+    } catch {
+      // analytics not loaded — don't block redirect
+    }
+
     const timer = setTimeout(() => {
       if (redirectTo) {
         window.location.href = redirectTo;
       }
     }, 2500);
     return () => clearTimeout(timer);
-  }, [redirectTo]);
+  }, [redirectTo, redirectName]);
 
   return (
     <Container>
@@ -45,6 +58,17 @@ export default function RedirectShell({
           <a
             href={redirectTo}
             className="underline decoration-border underline-offset-[3px] hover:text-link-hover hover:decoration-link-hover"
+            onClick={(e) =>
+              trackLinkClick(
+                {
+                  href: redirectTo,
+                  text: "click here",
+                  location: `redirect-fallback:${redirectName}`,
+                  external: true,
+                },
+                e,
+              )
+            }
           >
             click here
           </a>
