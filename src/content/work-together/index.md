@@ -2,7 +2,7 @@
 templateKey: work-together
 title: Work with me
 icpLine: |-
-  I'm Will Harris (ex-OpenSea, ex-LinkedIn). I help startups make the jump from "it works" to "it scales.".
+  Hi! I'm Will Harris (ex-OpenSea, ex-LinkedIn). I help startups make the jump from "it works" to "it scales.".
 bookingUrl: https://calendly.com/wharris-cal
 deckUrl: https://docs.google.com/presentation/d/17srZbSNvvgtIGhutIbKCqmfZl6QMCmcLXl2viDqNdLc/edit
 seo:
