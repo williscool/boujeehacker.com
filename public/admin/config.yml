@@ -144,6 +144,23 @@ collections:
                   { label: "Description", name: "description", widget: "string" },
                 ],
             }
+  - name: "agreements"
+    label: "Agreements"
+    label_singular: "Agreement version"
+    folder: "src/content/agreement"
+    extension: "md"
+    format: "frontmatter"
+    create: true
+    slug: "{{version}}"
+    identifier_field: "version"
+    fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "agreement" }
+      - { label: "Version", name: "version", widget: "string", hint: "YYYY-MM-DD. Becomes the file name and URL slug." }
+      - { label: "Effective Date", name: "effectiveDate", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Entity", name: "entity", widget: "string", default: "Upscale Level LLC" }
+      - { label: "Governing Law", name: "governingLaw", widget: "string", default: "Florida" }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Full agreement text. Old versions should never be edited once used — draft a new dated version instead." }
+
   - name: "navbarAndFooter"
     label: "Navbar & Footer"
     files:

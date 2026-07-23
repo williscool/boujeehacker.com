@@ -82,6 +82,14 @@ export interface RedirectFrontmatter {
   redirectTo: string;
 }
 
+export interface AgreementFrontmatter {
+  templateKey: "agreement";
+  version: string;
+  effectiveDate: string;
+  entity: string;
+  governingLaw: string;
+}
+
 export interface WorkTogetherFrontmatter {
   templateKey: "work-together";
   title: string;
