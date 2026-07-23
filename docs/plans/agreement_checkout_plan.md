@@ -29,6 +29,7 @@ Flow: Will creates the Mercury invoice with memo "Payment constitutes acceptance
 - **Checkout page** `app/(site)/work-together/start/page.tsx`: server component fetches current agreement (SSG), renders it, then mounts a `"use client"` `StartClickwrap` component below.
 - **`StartClickwrap.tsx`**: reads `inv` from `window.location.search` in `useEffect` (avoids hydration mismatch under static export). Continue disabled until checkbox checked. On click: base64url-decode, `new URL()`, allowlist `hostname === "mercury.com" || "app.mercury.com"` (prevents open-redirect), then `window.location.assign`. If `inv` is missing/invalid: replace Continue with an inline "check your inbox" fallback.
 - **`/work-together` CTA**: small copy addition in `src/content/work-together/index.md` linking scoped clients to `/work-together/start/`. No page-component change.
+- **Start-link generator** `app/admin/start-link/page.tsx`: unlinked static page with a `"use client"` component — Mercury URL input, "Generate" button, output field showing `https://boujeehacker.com/work-together/start/?inv=<base64url>` with a copy-to-clipboard button. Runs the same host allowlist as `StartClickwrap` and shows an inline error if the URL isn't a Mercury host. No auth (route is unlinked; the output link is safe to share regardless). Sits alongside the existing Sveltia CMS `/admin/` route.
 - **Sveltia CMS config**: if a config file is present in this repo, add an `agreement` folder collection pointing at `src/content/agreement/*.md`. If not present, skip and note it.
 
 Design choice: encoding the invoice URL in the query param (vs. a server-side lookup code) keeps the flow stateless, which is required under static export and keeps Phase 1 free of new infra.
@@ -54,6 +55,8 @@ Triggered when recurring paid engagements justify paid infra. **Requires moving 
 | `app/(site)/agreement/[version]/page.tsx` | New: SSG per version |
 | `app/(site)/work-together/start/page.tsx` | New: server component, renders agreement + client |
 | `app/(site)/work-together/start/StartClickwrap.tsx` | New: `"use client"` checkbox + safe redirect |
+| `app/admin/start-link/page.tsx` | New: static admin page hosting the generator client component |
+| `app/admin/start-link/StartLinkGenerator.tsx` | New: `"use client"` — Mercury URL → base64url `/start/?inv=...` + copy button |
 | `src/content/work-together/index.md` | Add CTA line to `/work-together/start/` |
 | Sveltia CMS config (if present) | Add `agreement` folder collection |
 | P2 | `next.config.mjs` (remove export), `app/api/accept/route.ts`, `lib/mercury.ts`, DB migration, email template |
@@ -68,6 +71,7 @@ Triggered when recurring paid engagements justify paid infra. **Requires moving 
 - Valid Mercury `?inv` → redirects to the decoded URL after check + click.
 - No hydration warnings (query-param read in `useEffect`, not during render).
 - Mobile viewport spot-check of agreement page.
+- `/admin/start-link/` round-trip: pasting a Mercury URL produces a link that, when opened, decodes back to that exact URL. Non-Mercury input shows the inline error and doesn't emit a link.
 
 ## Open Questions
 
