@@ -1,0 +1,50 @@
+# Consulting Agreement
+
+**Version 2026-07-23**
+
+This agreement is between **Upscale Level LLC**, a Florida limited liability company ("Consultant"), and the client identified in the acceptance form below ("Client"). By checking the box and submitting the form, Client agrees to these terms.
+
+## 1. The Engagement
+
+Consultant will provide consulting services scoped toward the outcomes and deliverables agreed in writing between the parties. "In writing" includes, but is not limited to, email, shared documents, and other electronic records. Work proceeds in one-week increments, billed weekly in advance at the full weekly rate. For billing purposes, each engagement week runs from the first business day of a calendar week through the end of that calendar week, regardless of which day work actually begins; partial weeks are billed at the full weekly rate unless Consultant chooses, at its sole discretion, to prorate. Work for any week begins only after payment for that week clears.
+
+## 2. Fee and Payment
+
+The fee is a flat weekly rate stated on the invoice issued for the engagement, invoiced in advance and due before work for that week begins. The fee is non-refundable once work for the week has started. Each additional week is invoiced separately at its own stated rate, agreed before that week begins.
+
+## 3. Ownership
+
+Once the fee is paid, Client owns the work product created specifically for Client during the engagement: code, documentation, and written deliverables. Consultant retains ownership of pre-existing tools, templates, libraries, and general skills and knowledge, and may reuse generalized know-how in other work, provided no Client confidential information is disclosed.
+
+## 4. Confidentiality
+
+Each party will keep the other's non-public business and technical information confidential and use it only for this engagement. This obligation survives the engagement for two years. It does not apply to information that is public, independently developed, or lawfully received from a third party.
+
+## 5. Independent Contractor
+
+Consultant is an independent contractor, not an employee. Consultant controls how and when the work is performed, provides its own equipment, and is responsible for its own taxes. Nothing here creates a partnership, joint venture, or employment relationship.
+
+## 6. No Warranty; Limitation of Liability
+
+Consultant will perform the work with professional skill and care. Beyond that, the work is provided as-is, with no other warranties, express or implied, including fitness for a particular purpose. Neither party is liable to the other for indirect, incidental, or consequential damages. Each party's total liability under this agreement is capped at the fees actually paid for the engagement.
+
+## 7. Term and Termination
+
+This agreement covers all engagement weeks the parties agree to under it. Either party may decline further weeks for any reason with no notice required. Either party may terminate for material breach if the breach is not cured within three days of written notice. Sections 3, 4, and 6 survive termination.
+
+## 8. General
+
+This agreement is governed by the laws of the State of Florida, without regard to conflict of law rules. It is the entire agreement between the parties about this engagement and replaces any prior discussions on the same subject. If any provision is unenforceable, the rest remains in effect. Neither party may assign this agreement without the other's written consent. Amendments must be in writing (as defined in Section 1) and agreed by both parties.
+
+## 9. Acceptance
+
+By checking "I agree" and submitting this form, Client confirms they have read this agreement, have authority to bind the company named in the form, and agree to these terms. An acceptance record (name, email, company, timestamp, and agreement version) will be recorded and available upon request.
+
+Offered and agreed by Consultant:
+
+**Upscale Level LLC**
+By: William Harris, Owner
+
+---
+
+*Not legal advice; drafted for a lightweight early-stage consulting practice. Worth a one-time attorney review before high-stakes engagements.*
