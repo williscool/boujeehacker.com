@@ -65,8 +65,18 @@ export default function StartClickwrap({
           className="mt-1 h-4 w-4 accent-accent"
         />
         <span className="text-text">
-          I have read and agree to the Consulting Agreement above
-          (version {agreementVersion}).
+          I have read and agree to the Consulting Agreement above. Version{" "}
+          {agreementVersion}, kept permanently at{" "}
+          <a
+            href={`/agreement/${agreementVersion}/`}
+            target="_blank"
+            rel="noopener"
+            className="underline"
+            onClick={(e) => e.stopPropagation()}
+          >
+            /agreement/{agreementVersion}/
+          </a>
+          .
         </span>
       </label>
 
