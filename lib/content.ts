@@ -5,6 +5,7 @@ import { remark } from "remark";
 import remarkHtml from "remark-html";
 import type {
   AboutFrontmatter,
+  AgreementFrontmatter,
   ContentDoc,
   FooterFrontmatter,
   HomeFrontmatter,
@@ -12,6 +13,8 @@ import type {
   RedirectFrontmatter,
   WorkTogetherFrontmatter,
 } from "./content-types";
+
+export const CURRENT_AGREEMENT_VERSION = "2026-07-23";
 
 const CONTENT_ROOT = path.join(process.cwd(), "src", "content");
 
@@ -51,6 +54,27 @@ export async function getNavbar(): Promise<ContentDoc<NavbarFrontmatter>> {
 
 export async function getFooter(): Promise<ContentDoc<FooterFrontmatter>> {
   return readMarkdown<FooterFrontmatter>("footer/index.md");
+}
+
+export async function getAgreement(
+  version: string
+): Promise<ContentDoc<AgreementFrontmatter>> {
+  return readMarkdown<AgreementFrontmatter>(`agreement/${version}.md`);
+}
+
+export async function getCurrentAgreement(): Promise<
+  ContentDoc<AgreementFrontmatter>
+> {
+  return getAgreement(CURRENT_AGREEMENT_VERSION);
+}
+
+export async function listAgreementVersions(): Promise<string[]> {
+  const dir = path.join(CONTENT_ROOT, "agreement");
+  const entries = await fs.readdir(dir);
+  return entries
+    .filter((name) => name.endsWith(".md"))
+    .map((name) => name.replace(/\.md$/, ""))
+    .sort();
 }
 
 export async function getLayoutData(): Promise<{
